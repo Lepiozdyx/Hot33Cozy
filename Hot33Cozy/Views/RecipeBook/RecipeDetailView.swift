@@ -103,6 +103,7 @@ struct RecipeDetailView: View {
 #Preview {
     NavigationStack {
         RecipeDetailView(recipe: Recipe(
+            id: 1,
             name: "Green Tea",
             temperature: "80°C",
             brewingTime: 180,

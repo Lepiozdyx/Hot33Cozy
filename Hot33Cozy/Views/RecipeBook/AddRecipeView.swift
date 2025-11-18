@@ -133,12 +133,13 @@ struct AddRecipeView: View {
         let brewingTime = (Int(brewingTimeMinutes) ?? 0) * 60
         
         let recipe = Recipe(
+            id: dataManager.generateRecipeID(),
             name: name,
             temperature: temperature,
             brewingTime: brewingTime,
             ingredients: ingredientsList,
             description: description,
-            imageName: "custom-\(UUID().uuidString)",
+            imageName: "custom-recipe",
             isCustom: true
         )
         

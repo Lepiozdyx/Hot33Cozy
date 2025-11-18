@@ -2,7 +2,7 @@ import Foundation
 import Combine
 
 struct Recipe: Identifiable, Codable {
-    let id: UUID
+    let id: Int
     var name: String
     var temperature: String
     var brewingTime: Int
@@ -13,7 +13,7 @@ struct Recipe: Identifiable, Codable {
     var isCustom: Bool
     
     init(
-        id: UUID = UUID(),
+        id: Int,
         name: String,
         temperature: String,
         brewingTime: Int,

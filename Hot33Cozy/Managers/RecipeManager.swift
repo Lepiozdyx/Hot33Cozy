@@ -21,7 +21,7 @@ final class RecipeManager: ObservableObject {
         allRecipes.filter { $0.isFavorite }
     }
     
-    func toggleFavorite(recipeID: UUID) {
+    func toggleFavorite(recipeID: Int) {
         if let index = presetRecipes.firstIndex(where: { $0.id == recipeID }) {
             presetRecipes[index].isFavorite.toggle()
             saveFavorites()
@@ -32,8 +32,13 @@ final class RecipeManager: ObservableObject {
         }
     }
     
-    func getRecipe(by id: UUID) -> Recipe? {
+    func getRecipe(by id: Int) -> Recipe? {
         allRecipes.first { $0.id == id }
+    }
+    
+    func generateNextID() -> Int {
+        let maxID = allRecipes.map { $0.id }.max() ?? 0
+        return maxID + 1
     }
     
     private func loadPresetRecipes() {
@@ -46,7 +51,7 @@ final class RecipeManager: ObservableObject {
     }
     
     private func saveFavorites() {
-        let favoriteIDs = allRecipes.filter { $0.isFavorite }.map { $0.id.uuidString }
+        let favoriteIDs = allRecipes.filter { $0.isFavorite }.map { String($0.id) }
         UserDefaults.standard.set(favoriteIDs, forKey: favoritesKey)
     }
     
@@ -56,9 +61,9 @@ final class RecipeManager: ObservableObject {
         }
         
         for idString in favoriteIDs {
-            guard let uuid = UUID(uuidString: idString) else { continue }
+            guard let id = Int(idString) else { continue }
             
-            if let index = presetRecipes.firstIndex(where: { $0.id == uuid }) {
+            if let index = presetRecipes.firstIndex(where: { $0.id == id }) {
                 presetRecipes[index].isFavorite = true
             }
         }

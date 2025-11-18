@@ -8,7 +8,7 @@ struct Ritual: Identifiable, Codable {
     var date: Date
     var temperature: String?
     var brewingTime: Int?
-    var drinkID: UUID?
+    var drinkID: Int?
     var imageData: Data?
     
     init(
@@ -18,7 +18,7 @@ struct Ritual: Identifiable, Codable {
         date: Date = Date(),
         temperature: String? = nil,
         brewingTime: Int? = nil,
-        drinkID: UUID? = nil,
+        drinkID: Int? = nil,
         imageData: Data? = nil
     ) {
         self.id = id

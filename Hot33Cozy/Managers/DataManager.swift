@@ -43,6 +43,10 @@ final class DataManager: ObservableObject {
         saveCustomRecipes()
     }
     
+    func generateRecipeID() -> Int {
+        RecipeManager.shared.generateNextID()
+    }
+    
     private func saveRituals() {
         if let encoded = try? JSONEncoder().encode(rituals) {
             UserDefaults.standard.set(encoded, forKey: ritualsKey)
