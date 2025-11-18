@@ -1,0 +1,488 @@
+{
+  "meta": {
+    "version": "1.0",
+    "appName": "Hot33Cozy",
+    "description": "High-level design language describing the visual style, structure, and interaction patterns of the Hot33Cozy tea ritual app. Optimized for iOS 16+, dark UI, and SwiftUI implementation.",
+    "platform": "iOS",
+    "baseWidth": 375
+  },
+  "brand": {
+    "tone": "Warm, cozy, ritual-focused tea companion with a premium but approachable feel.",
+    "keywords": [
+      "cozy",
+      "ritual",
+      "warm",
+      "calm",
+      "confident",
+      "functional",
+      "structured"
+    ],
+    "visualStyle": "Dark mode first, strong contrast between warm accent colors and desaturated dark backgrounds. Components are rectangular with subtle rounding and clear, crisp edges. Minimal decoration, focus on clarity and hierarchy.",
+    "principles": [
+      "Prioritize clarity and legibility over decoration.",
+      "Use strong color only for primary actions, focus elements, and time-sensitive feedback (timer, charts).",
+      "Maintain consistent spacing rhythm and alignment across all screens.",
+      "Highlight ritual and repetition: repeat layouts across Timer, Recipe Book, Statistics, and My Rituals.",
+      "Support quick scanning: bold titles, muted subtitles, clear dividers, and consistent iconography."
+    ]
+  },
+  "colors": {
+    "palette": {
+      "primaryRed": {
+        "value": "#D52B00",
+        "usage": "Primary action buttons, timer ring, chart bars, key highlights that indicate heat, time, or important rituals."
+      },
+      "accentYellow": {
+        "value": "#FFD800",
+        "usage": "Timer progress highlight, selected tab icon outlines, emphasis on statistics and active states."
+      },
+      "backgroundMain": {
+        "value": "#3A3A3A",
+        "usage": "Main screen background behind all content."
+      },
+      "backgroundSurface": {
+        "value": "#2C2C2C",
+        "usage": "Cards, bottom navigation container, timer panel, lists, and input surfaces."
+      },
+      "backgroundEmphasis": {
+        "value": "#202020",
+        "usage": "Elevated elements like the daily deal banner, active list sections, and hero surfaces behind images."
+      },
+      "tabBarBackground": {
+        "value": "#5E5E5E",
+        "usage": "Bottom navigation bar base background."
+      },
+      "divider": {
+        "value": "#B0B0B0",
+        "usage": "Thin separator lines under section titles, text fields, and as structural horizontal rules."
+      },
+      "textPrimary": {
+        "value": "#FFFFFF",
+        "usage": "Primary text such as titles, main labels, and numbers."
+      },
+      "textSecondary": {
+        "value": "#D0D0D0",
+        "usage": "Subtitles, metadata like temperature and brewing time, secondary labels."
+      },
+      "textMuted": {
+        "value": "#A0A0A0",
+        "usage": "Placeholder text, helper labels, less important timestamps."
+      },
+      "tabIconInactive": {
+        "value": "#E0E0E0",
+        "usage": "Stroke and fill color for inactive tab icons."
+      },
+      "tabIconActive": {
+        "value": "#FFFF3B",
+        "usage": "Outline and symbol accent for the active tab icon."
+      },
+      "favoriteHeart": {
+        "value": "#FF5757",
+        "usage": "Heart icons indicating favorited recipes."
+      },
+      "danger": {
+        "value": "#E53300",
+        "usage": "Destructive actions such as swipe-to-delete in lists."
+      },
+      "overlayScrim": {
+        "value": "#00000080",
+        "usage": "Semi-transparent overlay for modal elements when needed."
+      }
+    },
+    "usageGuidelines": [
+      "Use primaryRed sparingly for high-value actions (Start, Stop, Save) and timer-related visualizations.",
+      "Limit accentYellow primarily to timer progress, selected tab indicators, and statistics emphasis to avoid color noise.",
+      "Keep the overall screen dark. Avoid pure black; use backgroundMain and backgroundSurface for a softer, less harsh dark mode.",
+      "Ensure sufficient contrast between textPrimary/textSecondary and background surfaces for legibility.",
+      "Use divider lines to structure content vertically instead of heavy borders or cards."
+    ]
+  },
+  "typography": {
+    "family": "SF Pro Rounded / SF Pro Text (system). Rounded for large display numbers and key headings, Text for lists and details.",
+    "scale": {
+      "displayTimer": {
+        "font": "system",
+        "weight": "regular",
+        "size": 40,
+        "tracking": 0,
+        "usage": "Main timer value in the circular timer, e.g., 05:00."
+      },
+      "h1ScreenTitle": {
+        "font": "system",
+        "weight": "semibold",
+        "size": 20,
+        "tracking": 0.2,
+        "usage": "Top navigation title centered on each screen, e.g., Timer, Statistics, Recipe Book."
+      },
+      "h2SectionTitle": {
+        "font": "system",
+        "weight": "bold",
+        "size": 18,
+        "tracking": 0,
+        "usage": "Section titles like Title, Notes, Ingredients, Description, Today, Yesterday."
+      },
+      "h3CardTitle": {
+        "font": "system",
+        "weight": "semibold",
+        "size": 16,
+        "tracking": 0,
+        "usage": "Recipe titles inside cards and list rows."
+      },
+      "bodyPrimary": {
+        "font": "system",
+        "weight": "regular",
+        "size": 14,
+        "tracking": 0,
+        "usage": "Standard body copy such as notes, descriptions, and list subtitles."
+      },
+      "bodySecondary": {
+        "font": "system",
+        "weight": "regular",
+        "size": 12,
+        "tracking": 0,
+        "usage": "Secondary metadata like temperature, brewing time, and timestamps."
+      },
+      "labelSmall": {
+        "font": "system",
+        "weight": "medium",
+        "size": 11,
+        "tracking": 0.2,
+        "usage": "Caps labels for segmented controls (Day, Week, Month) and small UI labels."
+      },
+      "buttonLabel": {
+        "font": "system",
+        "weight": "heavy",
+        "size": 20,
+        "tracking": 0.4,
+        "usage": "Start/Stop/Save button labels with strong emphasis."
+      }
+    },
+    "guidelines": [
+      "Use one primary type family (SF Pro) to keep the interface cohesive.",
+      "Limit the number of weights per screen to two (e.g., semibold and regular) to avoid visual noise.",
+      "Timer numbers should be larger and allowed generous breathing room to stand out.",
+      "Use uppercase or title case consistently for labels like Day, Week, Month, and button titles.",
+      "Maintain consistent line height and spacing between section labels and their associated content."
+    ]
+  },
+  "spacing": {
+    "scale": {
+      "xs": 4,
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "xl": 24,
+      "xxl": 32
+    },
+    "radius": {
+      "none": 0,
+      "small": 6,
+      "medium": 10,
+      "large": 16,
+      "pill": 999
+    },
+    "rules": [
+      "Horizontal screen margins use lg (16) on phones for all primary content blocks.",
+      "Vertical spacing between unrelated sections (e.g., Timer and Title area) should use xl or xxl.",
+      "Spacing between label and value (e.g., Title label and its text) should use sm or md for tight hierarchy.",
+      "Bottom tab bar uses minimal vertical padding to feel compact but remains touch-friendly.",
+      "Buttons maintain generous top margin from preceding fields and bottom margin above the tab bar."
+    ]
+  },
+  "layout": {
+    "navigationBar": {
+      "height": 44,
+      "backgroundColor": "backgroundMain",
+      "titleAlignment": "center",
+      "dividerVisible": true,
+      "leadingItem": "Back arrow or none depending on context.",
+      "trailingItem": "Plus icon for adding new rituals or recipes.",
+      "guidelines": [
+        "Keep the navigation bar visually light with a thin bottom divider.",
+        "Center the title, avoid large icons in the bar.",
+        "Use SF Symbol icons with consistent stroke weight for back and add actions."
+      ]
+    },
+    "bottomTabBar": {
+      "height": 80,
+      "backgroundColor": "tabBarBackground",
+      "cornerRadius": 20,
+      "iconSize": 24,
+      "labelFont": "labelSmall",
+      "layout": "Five equally spaced tabs with icon on top, label below.",
+      "guidelines": [
+        "Tab bar floats visually above the screen edges, with rounded corners and padding from screen border.",
+        "Active tab is indicated by accentYellow icon outline and label color; inactive tabs are monochrome gray.",
+        "Icons should be outline-style, simple, and consistent in stroke width."
+      ]
+    },
+    "contentStructure": {
+      "timerScreen": {
+        "sections": [
+          "Navigation bar",
+          "Timer circle block",
+          "Title and Notes section",
+          "Primary Start/Stop button",
+          "Bottom tab bar"
+        ],
+        "guidelines": [
+          "Timer circle is centrally aligned and occupies roughly the upper half of the safe area.",
+          "Title and Notes fields sit in a vertical stack with clear underlines, occupying full width minus standard margins.",
+          "Primary button spans nearly full width with generous height and strong color contrast."
+        ]
+      },
+      "statisticsScreen": {
+        "sections": [
+          "Navigation bar",
+          "Segmented control (Day, Week, Month)",
+          "Bar chart visualization",
+          "List of historical rituals",
+          "Bottom tab bar"
+        ],
+        "guidelines": [
+          "Segmented control is centered, pill-shaped, and clearly differentiated between active and inactive segments.",
+          "Bar chart uses strong red bars with yellow outlines or accents against a dark background.",
+          "Statistics list uses alternating sections separated by dashed or thin dividers."
+        ]
+      },
+      "homeRitualsScreen": {
+        "sections": [
+          "Navigation bar with title My Rituals",
+          "Daily deal banner",
+          "Sectioned list (Today, Yesterday, etc.)",
+          "Bottom tab bar"
+        ],
+        "guidelines": [
+          "Daily deal is a prominent horizontal card with an image on the right and text on the left on a red-orange gradient background.",
+          "List rows show title, context (e.g., After Yoga), and time aligned to the right.",
+          "Swipe-to-delete reveals a full-height red delete action aligned to the right."
+        ]
+      },
+      "recipeBookGridScreen": {
+        "sections": [
+          "Navigation bar",
+          "Scrollable grid of recipe cards",
+          "Bottom tab bar"
+        ],
+        "guidelines": [
+          "Use a two-column grid with consistent card aspect ratio (portrait) and equal spacing.",
+          "Cards have a yellow outline when part of the main recipe grid and a more muted outline in other contexts.",
+          "Each card shows image, title, and a small temperature/time strip with icons at the bottom."
+        ]
+      },
+      "recipeDetailScreen": {
+        "sections": [
+          "Navigation bar with share and favorite icons",
+          "Hero image",
+          "Recipe title and metadata",
+          "Ingredients list",
+          "Description steps",
+          "Bottom tab bar"
+        ],
+        "guidelines": [
+          "Hero image spans full width above the fold with subtle corner radii matched to the rest of the app.",
+          "Ingredients are presented as a simple text list with bullet-like dots or line breaks.",
+          "Description is numbered to emphasize stepwise ritual behavior."
+        ]
+      }
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": {
+        "shape": "Full-width rounded rectangle with medium radius.",
+        "backgroundColor": "primaryRed",
+        "textColor": "textPrimary",
+        "font": "buttonLabel",
+        "minHeight": 56,
+        "shadow": "Subtle soft shadow or inner shading for depth.",
+        "states": {
+          "default": {
+            "backgroundColor": "primaryRed",
+            "textColor": "textPrimary"
+          },
+          "pressed": {
+            "backgroundColor": "#B32300",
+            "textColor": "textPrimary"
+          },
+          "disabled": {
+            "backgroundColor": "#777777",
+            "textColor": "textMuted"
+          }
+        }
+      },
+      "secondary": {
+        "shape": "Outlined rounded rectangle.",
+        "borderColor": "divider",
+        "textColor": "textPrimary",
+        "font": "bodyPrimary",
+        "minHeight": 44
+      },
+      "iconCircle": {
+        "shape": "Circle or rounded square with subtle border.",
+        "backgroundColor": "transparent",
+        "borderColor": "divider",
+        "iconColor": "textPrimary",
+        "usage": "Add photo, add recipe, navigation close/back icons."
+      }
+    },
+    "timerRing": {
+      "baseStrokeColor": "primaryRed",
+      "progressStrokeColor": "accentYellow",
+      "backgroundStrokeColor": "#5A5A5A",
+      "strokeWidth": 28,
+      "innerContent": {
+        "showsTime": true,
+        "timeFont": "displayTimer",
+        "dividerLine": true,
+        "dividerColor": "divider"
+      },
+      "animation": "Smooth continuous stroke drawing for countdown progress.",
+      "guidelines": [
+        "Keep the inner circle clean with only the time and a horizontal divider line.",
+        "Fully completed circle uses red ring only when timer is idle; yellow progress overlays during countdown.",
+        "Timer ring should feel bold and central to the screen; avoid additional badges or icons inside."
+      ]
+    },
+    "segmentedControl": {
+      "shape": "Rounded rectangle pill container housing three segments.",
+      "backgroundColor": "backgroundSurface",
+      "borderColor": "divider",
+      "segment": {
+        "font": "labelSmall",
+        "cornerRadius": "pill",
+        "selectedBackgroundColor": "primaryRed",
+        "selectedTextColor": "textPrimary",
+        "unselectedBackgroundColor": "transparent",
+        "unselectedTextColor": "textSecondary"
+      },
+      "layout": "Segments sit flush with each other, equal width, with subtle outer stroke."
+    },
+    "tabBarItem": {
+      "iconStyle": "Outline SF Symbol or custom icon with uniform stroke.",
+      "labelFont": "labelSmall",
+      "inactive": {
+        "iconColor": "tabIconInactive",
+        "labelColor": "textMuted"
+      },
+      "active": {
+        "iconColor": "tabIconActive",
+        "labelColor": "tabIconActive"
+      }
+    },
+    "textFieldUnderlined": {
+      "labelFont": "h2SectionTitle",
+      "valueFont": "bodyPrimary",
+      "labelColor": "textPrimary",
+      "valueColor": "textSecondary",
+      "placeholderColor": "textMuted",
+      "underlineColor": "divider",
+      "spacingAbove": "lg",
+      "spacingBelow": "md",
+      "guidelines": [
+        "Label sits above the value field, left-aligned, with clear separation using the underline.",
+        "Fields do not have filled backgrounds; rely on underline and alignment for affordance.",
+        "Use consistent width across forms to align all fields vertically."
+      ]
+    },
+    "listRowRitual": {
+      "backgroundColor": "transparent",
+      "titleFont": "h3CardTitle",
+      "subtitleFont": "bodySecondary",
+      "timestampFont": "bodySecondary",
+      "titleColor": "textPrimary",
+      "subtitleColor": "textSecondary",
+      "timestampColor": "textSecondary",
+      "dividerBelow": true,
+      "dividerColor": "divider",
+      "swipeActions": {
+        "delete": {
+          "backgroundColor": "danger",
+          "textColor": "textPrimary",
+          "label": "Delete"
+        }
+      },
+      "layout": "Title and subtitle stacked left; time aligned right vertically centered."
+    },
+    "cardRecipeGrid": {
+      "backgroundColor": "backgroundSurface",
+      "borderColor": "accentYellow",
+      "borderWidth": 2,
+      "cornerRadius": 12,
+      "imageAspectRatio": "3:4",
+      "titleFont": "h3CardTitle",
+      "subtitleFont": "bodySecondary",
+      "padding": "sm",
+      "footerStrip": {
+        "background": "backgroundEmphasis",
+        "icons": [
+          "temperature",
+          "time"
+        ],
+        "font": "bodySecondary",
+        "textColor": "textSecondary"
+      },
+      "favoriteIcon": {
+        "position": "topRight",
+        "shape": "heart",
+        "color": "favoriteHeart",
+        "background": "backgroundEmphasis"
+      }
+    },
+    "cardDailyDeal": {
+      "backgroundGradient": [
+        "#FF6A00",
+        "#D52B00"
+      ],
+      "cornerRadius": 16,
+      "imagePosition": "right",
+      "label": {
+        "text": "Daily Deal",
+        "font": "labelSmall",
+        "color": "textPrimary",
+        "background": "backgroundEmphasis"
+      },
+      "titleFont": "h3CardTitle",
+      "subtitleFont": "bodySecondary",
+      "textColor": "textPrimary"
+    },
+    "chartBar": {
+      "barColor": "primaryRed",
+      "barBorderColor": "accentYellow",
+      "axisColor": "divider",
+      "labelFont": "bodySecondary",
+      "labelColor": "textSecondary",
+      "guidelines": [
+        "Bars are thick enough to feel substantial, with minimal spacing.",
+        "Use yellow as a subtle accent for outlines or key bars, not for every element.",
+        "Y-axis labels can be simplified to small numbers along the right edge for a technical look."
+      ]
+    },
+    "favoriteIcon": {
+      "shape": "heart outline filled when active.",
+      "inactiveColor": "textSecondary",
+      "activeColor": "favoriteHeart",
+      "background": "transparent",
+      "tapTargetSize": 44
+    }
+  },
+  "motion": {
+    "guidelines": [
+      "Use subtle, functional motion focused on timers, progress, and state changes.",
+      "Timer progress animates smoothly along the ring; avoid bounce or excessive easing.",
+      "Button taps shrink slightly and darken to convey press feedback.",
+      "Segmented control and tab bar transitions should be quick and direct, without heavy spring animations.",
+      "List interactions like swipe-to-delete use standard iOS patterns without custom motion."
+    ]
+  },
+  "accessibility": {
+    "guidelines": [
+      "Ensure adequate contrast between primary text and dark backgrounds.",
+      "Maintain minimum 44x44pt touch targets for all interactive elements, including icons and hearts.",
+      "Support Dynamic Type by allowing fonts to scale while maintaining relative hierarchy.",
+      "Avoid relying on color alone to indicate selection; use shape and weight (e.g., filled segment, underline) where possible."
+    ]
+  }
+}
+
+

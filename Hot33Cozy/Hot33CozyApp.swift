@@ -1,17 +1,16 @@
-//
-//  Hot33CozyApp.swift
-//  Hot33Cozy
-//
-//  Created by Alex on 18.11.2025.
-//
-
 import SwiftUI
 
 @main
 struct Hot33CozyApp: App {
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if hasCompletedOnboarding {
+                MainTabView()
+            } else {
+                OnboardingView()
+            }
         }
     }
 }

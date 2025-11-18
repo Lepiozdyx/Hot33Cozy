@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Hot33Cozy
-//
-//  Created by Alex on 18.11.2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {

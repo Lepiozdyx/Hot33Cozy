@@ -1,0 +1,110 @@
+[
+  {
+    "id": "A5E3F2C1-8D4B-4A1E-9F3B-C7E5D6A8B9C0",
+    "name": "Green Tea",
+    "temperature": "80°C",
+    "brewingTime": 180,
+    "ingredients": [
+      "Green tea leaves (2g)",
+      "Hot water (200ml)"
+    ],
+    "description": "Pour hot water over green tea leaves and steep for 2-3 minutes. The water should be cooled slightly to avoid bitterness. Perfect for a calm, focused moment.",
+    "imageName": "green-tea",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": "B7F4E3D2-9E5C-4B2F-8G4C-D8F6E7B9D0E1",
+    "name": "Black Tea",
+    "temperature": "95°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "Black tea leaves (3g)",
+      "Boiling water (200ml)",
+      "Optional: milk, sugar"
+    ],
+    "description": "Steep black tea in freshly boiled water for 4-5 minutes. Add milk and sugar to taste. A classic ritual for morning energy.",
+    "imageName": "black-tea",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": "C8G5F4E3-0F6D-4C3G-9H5D-E9G7F8C0E1F2",
+    "name": "Chamomile Tea",
+    "temperature": "90°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "Dried chamomile flowers (1 tbsp)",
+      "Hot water (200ml)",
+      "Optional: honey"
+    ],
+    "description": "Steep chamomile flowers in hot water for 5 minutes. Add honey for sweetness. Perfect for evening relaxation and better sleep.",
+    "imageName": "chamomile-tea",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": "D9H6G5F4-1G7E-4D4H-0I6E-F0H8G9D1F2G3",
+    "name": "Matcha Latte",
+    "temperature": "75°C",
+    "brewingTime": 120,
+    "ingredients": [
+      "Matcha powder (2g)",
+      "Hot water (50ml)",
+      "Steamed milk (150ml)",
+      "Optional: sweetener"
+    ],
+    "description": "Whisk matcha powder with hot water until frothy. Add steamed milk and sweetener if desired. A creamy, energizing ritual.",
+    "imageName": "matcha-latte",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": "E0I7H6G5-2H8F-4E5I-1J7F-G1I9H0E2G3H4",
+    "name": "Hot Chocolate",
+    "temperature": "85°C",
+    "brewingTime": 180,
+    "ingredients": [
+      "Cocoa powder (2 tbsp)",
+      "Sugar (1 tbsp)",
+      "Hot milk (200ml)",
+      "Optional: whipped cream, marshmallows"
+    ],
+    "description": "Mix cocoa powder and sugar with a small amount of hot milk. Add remaining milk and stir. Top with whipped cream or marshmallows. Pure comfort in a cup.",
+    "imageName": "hot-chocolate",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": "F1J8I7H6-3I9G-4F6J-2K8G-H2J0I1F3H4I5",
+    "name": "Ginger Lemon Tea",
+    "temperature": "95°C",
+    "brewingTime": 600,
+    "ingredients": [
+      "Fresh ginger (3-4 slices)",
+      "Lemon juice (1 tbsp)",
+      "Hot water (200ml)",
+      "Honey to taste"
+    ],
+    "description": "Steep fresh ginger slices in boiling water for 10 minutes. Add lemon juice and honey. A warming, immune-boosting ritual.",
+    "imageName": "ginger-lemon-tea",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": "G2K9J8I7-4J0H-4G7K-3L9H-I3K1J2G4I5J6",
+    "name": "Peppermint Tea",
+    "temperature": "90°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "Fresh or dried peppermint leaves (1 tbsp)",
+      "Hot water (200ml)",
+      "Optional: honey"
+    ],
+    "description": "Pour hot water over peppermint leaves and steep for 5 minutes. Strain and add honey if desired. Refreshing and soothing for digestion.",
+    "imageName": "peppermint-tea",
+    "isFavorite": false,
+    "isCustom": false
+  }
+]
+
