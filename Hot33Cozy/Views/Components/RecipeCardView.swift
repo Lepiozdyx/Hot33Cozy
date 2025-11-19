@@ -7,14 +7,15 @@ struct RecipeCardView: View {
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .topTrailing) {
-                Rectangle()
-                    .fill(Color.backgroundEmphasis)
-                    .aspectRatio(3/4, contentMode: .fit)
-                    .overlay(
-                        Image(systemName: "cup.and.saucer.fill")
-                            .font(.system(size: 40))
-                            .foregroundColor(.textMuted)
-                    )
+                ZStack {
+                    Color.backgroundEmphasis
+                    
+                    Image(recipe.imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .clipped()
+                }
+                .aspectRatio(3/4, contentMode: .fit)
                 
                 Button(action: onFavoriteToggle) {
                     Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")

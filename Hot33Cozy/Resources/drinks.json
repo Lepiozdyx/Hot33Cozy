@@ -1,110 +1,518 @@
 [
   {
     "id": 1,
-    "name": "Green Tea",
-    "temperature": "80°C",
-    "brewingTime": 180,
+    "name": "Banana Bread Latte",
+    "temperature": "70°C",
+    "brewingTime": 300,
     "ingredients": [
-      "Green tea leaves (2g)",
-      "Hot water (200ml)"
+      "1 cup milk (dairy or plant-based)",
+      "1 tbsp banana syrup or mashed ripe banana",
+      "1 shot espresso",
+      "1 pinch cinnamon",
+      "1 pinch nutmeg",
+      "Whipped cream for topping",
+      "Walnuts for garnish"
     ],
-    "description": "Pour hot water over green tea leaves and steep for 2-3 minutes. The water should be cooled slightly to avoid bitterness. Perfect for a calm, focused moment.",
-    "imageName": "green-tea",
+    "description": "1. Brew a shot of espresso.\n2. In a small saucepan, heat milk with banana syrup (or mashed banana) and spices until steaming.\n3. Froth the milk mixture.\n4. Pour milk over espresso.\n5. Top with whipped cream and walnuts.",
+    "imageName": "BananaBreadLatte",
     "isFavorite": false,
     "isCustom": false
   },
   {
     "id": 2,
-    "name": "Black Tea",
-    "temperature": "95°C",
-    "brewingTime": 300,
+    "name": "Best Slow Cooker Hot Chocolate",
+    "temperature": "80°C",
+    "brewingTime": 7200,
     "ingredients": [
-      "Black tea leaves (3g)",
-      "Boiling water (200ml)",
-      "Optional: milk, sugar"
+      "1.5 cups heavy whipping cream",
+      "1 (14 oz) can sweetened condensed milk",
+      "6 cups milk",
+      "1.5 tsp vanilla extract",
+      "2 cups chocolate chips (semi-sweet or milk)"
     ],
-    "description": "Steep black tea in freshly boiled water for 4-5 minutes. Add milk and sugar to taste. A classic ritual for morning energy.",
-    "imageName": "black-tea",
-    "isFavorite": false,
+    "description": "1. Pour all ingredients into a slow cooker.\n2. Cover and cook on low for 2 hours, stirring occasionally, until chocolate chips are melted.\n3. Whisk well before serving to ensure mixture is smooth.\n4. Ladle into mugs and serve warm.",
+    "imageName": "BestSlowCookerHotChocolate",
+    "isFavorite": true,
     "isCustom": false
   },
   {
     "id": 3,
-    "name": "Chamomile Tea",
-    "temperature": "90°C",
-    "brewingTime": 300,
+    "name": "Candy Cane Cocoa",
+    "temperature": "85°C",
+    "brewingTime": 600,
     "ingredients": [
-      "Dried chamomile flowers (1 tbsp)",
-      "Hot water (200ml)",
-      "Optional: honey"
+      "4 cups milk",
+      "3 (1 oz) squares semisweet chocolate, chopped",
+      "4 peppermint candy canes, crushed",
+      "1 cup whipped cream",
+      "4 small peppermint candy canes"
     ],
-    "description": "Steep chamomile flowers in hot water for 5 minutes. Add honey for sweetness. Perfect for evening relaxation and better sleep.",
-    "imageName": "chamomile-tea",
+    "description": "1. In a saucepan, heat milk until hot but not boiling.\n2. Add chocolate and crushed candy canes; whisk until smooth and melted.\n3. Pour into mugs.\n4. Top with whipped cream and garnish with whole candy canes.",
+    "imageName": "CandyCaneCocoa",
     "isFavorite": false,
     "isCustom": false
   },
   {
     "id": 4,
-    "name": "Matcha Latte",
-    "temperature": "75°C",
-    "brewingTime": 120,
+    "name": "Citrus Honey Green Tea",
+    "temperature": "80°C",
+    "brewingTime": 180,
     "ingredients": [
-      "Matcha powder (2g)",
-      "Hot water (50ml)",
-      "Steamed milk (150ml)",
-      "Optional: sweetener"
+      "1 green tea bag",
+      "1 cup hot water (80°C)",
+      "1 tsp honey",
+      "1 slice lemon",
+      "1 slice orange"
     ],
-    "description": "Whisk matcha powder with hot water until frothy. Add steamed milk and sweetener if desired. A creamy, energizing ritual.",
-    "imageName": "matcha-latte",
+    "description": "1. Heat water to 80°C (do not boil).\n2. Place tea bag in a cup and pour over hot water.\n3. Steep for 3 minutes.\n4. Remove tea bag, stir in honey, and add citrus slices.",
+    "imageName": "CitrusHoneyGreenTea",
     "isFavorite": false,
     "isCustom": false
   },
   {
     "id": 5,
-    "name": "Hot Chocolate",
-    "temperature": "85°C",
-    "brewingTime": 180,
+    "name": "Creamy Homemade Hot Cocoa",
+    "temperature": "95°C",
+    "brewingTime": 600,
     "ingredients": [
-      "Cocoa powder (2 tbsp)",
-      "Sugar (1 tbsp)",
-      "Hot milk (200ml)",
-      "Optional: whipped cream, marshmallows"
+      "¾ Cup White Sugar",
+      "⅓ Cup Unsweetened Cocoa Powder",
+      "1 Pinch Salt",
+      "⅓ Cup Boiling Water",
+      "3 ½ Cups Milk",
+      "¾ Teaspoon Vanilla Extract",
+      "½ Cup Half-And-Half Cream"
     ],
-    "description": "Mix cocoa powder and sugar with a small amount of hot milk. Add remaining milk and stir. Top with whipped cream or marshmallows. Pure comfort in a cup.",
-    "imageName": "hot-chocolate",
+    "description": "1. Gather The Ingredients.\n2. Combine Sugar, Cocoa Powder, And Salt In A Saucepan; Add Boiling Water And Whisk Until Smooth. Bring Mixture To A Simmer, Stirring Continuously To Prevent Scorching, And Cook For 2 Minutes.\n3. Stir In Milk And Heat Until Very Hot Without Boiling.\n4. Remove From Heat; Add Vanilla.\n5. Add Cream To Each Mug To Help Cool Cocoa To Drinking Temperature Then Divide Hot Cocoa Between 4 Mugs.\n6. Serve Hot And Enjoy!",
+    "imageName": "CreamyHomemadeHotCocoa",
     "isFavorite": false,
     "isCustom": false
   },
   {
     "id": 6,
-    "name": "Ginger Lemon Tea",
-    "temperature": "95°C",
-    "brewingTime": 600,
+    "name": "Delicious Vegan Hot Chocolate",
+    "temperature": "85°C",
+    "brewingTime": 300,
     "ingredients": [
-      "Fresh ginger (3-4 slices)",
-      "Lemon juice (1 tbsp)",
-      "Hot water (200ml)",
-      "Honey to taste"
+      "2 cups almond milk",
+      "2 tbsp cocoa powder",
+      "2 tbsp maple syrup",
+      "½ tsp vanilla extract",
+      "Pinch of sea salt"
     ],
-    "description": "Steep fresh ginger slices in boiling water for 10 minutes. Add lemon juice and honey. A warming, immune-boosting ritual.",
-    "imageName": "ginger-lemon-tea",
+    "description": "1. Add almond milk, cocoa powder, maple syrup, vanilla, and salt to a small saucepan.\n2. Whisk constantly over medium heat until hot and smooth.\n3. Do not let it boil.\n4. Pour into mugs and enjoy.",
+    "imageName": "DeliciousVeganHotChocolate",
     "isFavorite": false,
     "isCustom": false
   },
   {
     "id": 7,
-    "name": "Peppermint Tea",
+    "name": "Easy Mexican Hot Chocolate",
+    "temperature": "90°C",
+    "brewingTime": 420,
+    "ingredients": [
+      "2 cups milk",
+      "2 tbsp cocoa powder",
+      "2 tbsp sugar",
+      "½ tsp cinnamon",
+      "Pinch of cayenne pepper (optional)",
+      "¼ tsp vanilla extract"
+    ],
+    "description": "1. In a saucepan, whisk together milk, cocoa, sugar, cinnamon, and cayenne.\n2. Heat over medium heat until steaming, whisking frequently.\n3. Stir in vanilla extract.\n4. Serve hot with a cinnamon stick garnish.",
+    "imageName": "EasyMexicanHotChocolate",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 8,
+    "name": "Freddo Espresso",
+    "temperature": "4°C",
+    "brewingTime": 120,
+    "ingredients": [
+      "2 shots espresso",
+      "Sugar to taste",
+      "Ice cubes"
+    ],
+    "description": "1. Brew a double shot of espresso.\n2. While hot, mix in sugar if desired.\n3. Pour espresso into a shaker with ice.\n4. Shake vigorously until cold and foamy.\n5. Strain over fresh ice in a glass.",
+    "imageName": "FreddoEspresso",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 9,
+    "name": "Gingerbread Chai Oat Creamer",
+    "temperature": "5°C",
+    "brewingTime": 600,
+    "ingredients": [
+      "1 cup oat milk",
+      "1 chai tea bag",
+      "1 tsp molasses",
+      "½ tsp ginger powder",
+      "¼ tsp cinnamon",
+      "Pinch of cloves"
+    ],
+    "description": "1. Heat oat milk in a saucepan until simmering.\n2. Add tea bag and spices; steep for 5-10 minutes.\n3. Remove tea bag and stir in molasses.\n4. Let cool and store in the fridge to use as a creamer for coffee or tea.",
+    "imageName": "GingerbreadChaiOatCreamer",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 10,
+    "name": "Ginger Turmeric Herbal Tea",
+    "temperature": "95°C",
+    "brewingTime": 600,
+    "ingredients": [
+      "2 cups water",
+      "½ tsp ground turmeric",
+      "½ tsp ground ginger",
+      "1 tbsp lemon juice",
+      "Honey to taste"
+    ],
+    "description": "1. Bring water to a boil in a small saucepan.\n2. Add turmeric and ginger; reduce heat and simmer for 10 minutes.\n3. Strain into a mug.\n4. Add lemon juice and honey to taste.",
+    "imageName": "GingerTurmericHerbalTea",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 11,
+    "name": "Healthy Hot Cocoa",
+    "temperature": "85°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "1 cup almond milk",
+      "1 tbsp raw cacao powder",
+      "1 tbsp coconut sugar or stevia",
+      "¼ tsp cinnamon"
+    ],
+    "description": "1. Heat almond milk in a saucepan over medium heat.\n2. Whisk in cacao powder, sweetener, and cinnamon.\n3. Simmer for 2-3 minutes until smooth and hot.\n4. Serve immediately.",
+    "imageName": "HealthyHotCocoa",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 12,
+    "name": "Homemade White Hot Chocolate",
+    "temperature": "80°C",
+    "brewingTime": 480,
+    "ingredients": [
+      "4 cups milk",
+      "1 tsp vanilla extract",
+      "1 cup white chocolate chips",
+      "Whipped cream (optional)"
+    ],
+    "description": "1. Stir milk, vanilla, and white chocolate chips together in a saucepan.\n2. Cook over medium-low heat, stirring occasionally, until the white hot chocolate comes to a simmer and the chocolate melts.\n3. Remove from heat and serve immediately, topped with whipped cream if desired.",
+    "imageName": "HomemadeWhiteHotChocolate",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 13,
+    "name": "Hot and Spicy Himalayan Tea",
+    "temperature": "90°C",
+    "brewingTime": 900,
+    "ingredients": [
+      "2 cups water",
+      "1 inch ginger, crushed",
+      "2 cardamom pods",
+      "1 stick cinnamon",
+      "2 cloves",
+      "1 tsp black tea leaves",
+      "Milk and sugar to taste"
+    ],
+    "description": "1. Boil water with crushed ginger, cardamom, cinnamon, and cloves for 5 minutes.\n2. Add tea leaves and simmer for 2 more minutes.\n3. Add milk and sugar; bring to a boil again.\n4. Strain and serve hot.",
+    "imageName": "HotandSpicyHimalayanTea",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 14,
+    "name": "Hot Cocoa Mix",
+    "temperature": "90°C",
+    "brewingTime": 120,
+    "ingredients": [
+      "2 cups powdered milk",
+      "1 cup cocoa powder",
+      "2 cups sugar",
+      "Pinch of salt",
+      "Hot water or milk for serving"
+    ],
+    "description": "1. Combine powdered milk, cocoa, sugar, and salt in a large bowl. Store in an airtight container.\n2. To serve: Mix 1/3 cup of the mix with 1 cup of hot water or milk.\n3. Stir until dissolved and enjoy.",
+    "imageName": "HotCocoaMix",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 15,
+    "name": "Hot Cranberry Tea",
+    "temperature": "95°C",
+    "brewingTime": 600,
+    "ingredients": [
+      "3 cups cranberry juice cocktail",
+      "1 cup water",
+      "½ tsp whole cloves",
+      "1 cinnamon stick",
+      "¼ cup sugar",
+      "2 tea bags (black tea)",
+      "1 tbsp lemon juice"
+    ],
+    "description": "1. In a saucepan, combine cranberry juice, water, cloves, and cinnamon. Bring to a boil.\n2. Reduce heat, cover, and simmer for 5 minutes.\n3. Remove from heat. Add sugar, tea bags, and lemon juice.\n4. Cover and steep for 5 minutes.\n5. Strain and serve warm.",
+    "imageName": "HotCranberryTea",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 16,
+    "name": "Iced Pistachio Latte",
+    "temperature": "4°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "1 shot espresso",
+      "1 tbsp pistachio syrup",
+      "1 cup milk",
+      "Ice cubes",
+      "Crushed pistachios for topping"
+    ],
+    "description": "1. Brew the espresso and mix with pistachio syrup.\n2. Fill a glass with ice.\n3. Pour milk over the ice.\n4. Pour the espresso mixture over the milk.\n5. Top with crushed pistachios.",
+    "imageName": "IcedPistachioLatte",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 17,
+    "name": "Iced Pumpkin Spice Latte",
+    "temperature": "4°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "1 shot espresso, cooled",
+      "1 cup milk",
+      "2 tbsp pumpkin puree",
+      "1 tbsp maple syrup",
+      "½ tsp pumpkin pie spice",
+      "Ice"
+    ],
+    "description": "1. Whisk pumpkin puree, maple syrup, and pumpkin pie spice into the milk until smooth.\n2. Fill a glass with ice.\n3. Pour the pumpkin milk over the ice.\n4. Add the cooled espresso shot.\n5. Stir and enjoy.",
+    "imageName": "IcedPumpkinSpiceLatte",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 18,
+    "name": "Java Chip Frappe",
+    "temperature": "0°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "1 cup ice",
+      "½ cup strong coffee, chilled",
+      "½ cup milk",
+      "2 tbsp chocolate chips",
+      "2 tbsp chocolate syrup",
+      "Whipped cream"
+    ],
+    "description": "1. Place ice, coffee, milk, chocolate chips, and syrup into a blender.\n2. Blend on high until smooth and creamy.\n3. Pour into a tall glass.\n4. Top with whipped cream and extra chocolate syrup.",
+    "imageName": "JavaChipFrappe",
+    "isFavorite": true,
+    "isCustom": false
+  },
+  {
+    "id": 19,
+    "name": "London Fog",
+    "temperature": "85°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "1 Earl Grey tea bag",
+      "½ cup hot water",
+      "½ cup steamed milk",
+      "1 tsp vanilla syrup"
+    ],
+    "description": "1. Steep Earl Grey tea in hot water for 3-5 minutes.\n2. Remove tea bag and stir in vanilla syrup.\n3. Top with steamed, frothy milk.\n4. Serve immediately.",
+    "imageName": "LondonFog",
+    "isFavorite": true,
+    "isCustom": false
+  },
+  {
+    "id": 20,
+    "name": "Mayan Hot Chocolate",
+    "temperature": "90°C",
+    "brewingTime": 420,
+    "ingredients": [
+      "2 cups milk",
+      "1 disc Mexican chocolate (or 2 tbsp cocoa + 1 tsp cinnamon)",
+      "Pinch of cayenne pepper",
+      "1 tbsp sugar"
+    ],
+    "description": "1. Heat milk in a saucepan over medium heat.\n2. Add chocolate, cayenne, and sugar.\n3. Whisk constantly until chocolate is melted and mixture is frothy.\n4. Serve hot.",
+    "imageName": "MayanHotChocolate",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 21,
+    "name": "Onion Tea",
+    "temperature": "95°C",
+    "brewingTime": 900,
+    "ingredients": [
+      "1 red onion, quartered",
+      "2 cups water",
+      "Honey (optional)"
+    ],
+    "description": "1. Bring water to a boil.\n2. Add onion quarters.\n3. Reduce heat and simmer for 10-15 minutes.\n4. Strain the liquid into a cup.\n5. Add honey if desired to mask the taste. Used as a traditional remedy.",
+    "imageName": "OnionTea",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 22,
+    "name": "Peppermint Mocha Creamer",
+    "temperature": "4°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "1 cup heavy cream",
+      "1 cup milk",
+      "¼ cup cocoa powder",
+      "¼ cup sugar",
+      "1 tsp peppermint extract"
+    ],
+    "description": "1. In a saucepan, whisk together cream, milk, cocoa, and sugar.\n2. Heat until sugar and cocoa are dissolved (do not boil).\n3. Remove from heat and stir in peppermint extract.\n4. Store in the refrigerator and use as a coffee creamer.",
+    "imageName": "PeppermintMochaCoffeeCreamer",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 23,
+    "name": "Perfect Vanilla Tea",
     "temperature": "90°C",
     "brewingTime": 300,
     "ingredients": [
-      "Fresh or dried peppermint leaves (1 tbsp)",
-      "Hot water (200ml)",
-      "Optional: honey"
+      "1 black tea bag",
+      "1 cup hot water",
+      "½ tsp vanilla extract",
+      "Sugar and milk to taste"
     ],
-    "description": "Pour hot water over peppermint leaves and steep for 5 minutes. Strain and add honey if desired. Refreshing and soothing for digestion.",
-    "imageName": "peppermint-tea",
+    "description": "1. Steep black tea in hot water for 3-5 minutes.\n2. Remove tea bag.\n3. Stir in vanilla extract.\n4. Add milk and sugar as desired.",
+    "imageName": "PerfectVanillaTea",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 24,
+    "name": "Polar Express Hot Chocolate",
+    "temperature": "85°C",
+    "brewingTime": 600,
+    "ingredients": [
+      "1.5 cups heavy cream",
+      "1 (14 oz) can sweetened condensed milk",
+      "2 cups semi-sweet chocolate chips",
+      "6 cups milk",
+      "1 tsp vanilla extract"
+    ],
+    "description": "1. Combine heavy cream, condensed milk, chocolate chips, and milk in a large pot.\n2. Heat over medium-low, stirring constantly until chips melt and mixture is hot.\n3. Stir in vanilla.\n4. Serve rich and creamy.",
+    "imageName": "PolarExpressHotChocolate",
+    "isFavorite": true,
+    "isCustom": false
+  },
+  {
+    "id": 25,
+    "name": "Reverse Dalgona Iced Coffee",
+    "temperature": "4°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "2 tbsp instant coffee",
+      "2 tbsp sugar",
+      "2 tbsp hot water",
+      "1 cup milk",
+      "Ice"
+    ],
+    "description": "1. Whisk instant coffee, sugar, and hot water until thick and creamy (the dalgona whip).\n2. Place the whip at the BOTTOM of a glass.\n3. Add ice cubes on top.\n4. Pour cold milk over the ice and whip to create the reverse effect.",
+    "imageName": "ReverseDalgonaIcedCoffee",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 26,
+    "name": "Slow Cooker Chai",
+    "temperature": "90°C",
+    "brewingTime": 7200,
+    "ingredients": [
+      "4 cups water",
+      "4 cups milk",
+      "8 black tea bags",
+      "½ cup sugar",
+      "1 tsp vanilla",
+      "2 tsp ground cinnamon",
+      "1 tsp ground ginger",
+      "½ tsp ground cloves",
+      "½ tsp ground cardamom"
+    ],
+    "description": "1. Add all ingredients to a slow cooker.\n2. Cook on high for 2 hours or low for 4 hours.\n3. Stir occasionally.\n4. Strain before serving if using loose spices, or ladle directly if using powder.",
+    "imageName": "SlowCookerChai",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 27,
+    "name": "Spanish Style Hot Chocolate",
+    "temperature": "85°C",
+    "brewingTime": 600,
+    "ingredients": [
+      "1 cup milk",
+      "3 oz dark chocolate, chopped",
+      "1 tsp cornstarch",
+      "Sugar to taste"
+    ],
+    "description": "1. Dissolve cornstarch in a tablespoon of milk.\n2. Heat remaining milk in a saucepan.\n3. Add chocolate and sugar; whisk until melted.\n4. Whisk in cornstarch mixture and cook until thickened.\n5. Serve thick and hot.",
+    "imageName": "SpanishStyleHotChocolate",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 28,
+    "name": "Té de Canela",
+    "temperature": "95°C",
+    "brewingTime": 600,
+    "ingredients": [
+      "2 cinnamon sticks",
+      "4 cups water",
+      "Sugar or honey to taste"
+    ],
+    "description": "1. Bring water and cinnamon sticks to a boil.\n2. Reduce heat and simmer for 10-15 minutes until water turns reddish-brown.\n3. Remove cinnamon sticks.\n4. Sweeten as desired and serve.",
+    "imageName": "TedeCanela",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 29,
+    "name": "Thai Spice Sweet Tea",
+    "temperature": "90°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "2 tbsp black tea leaves",
+      "1 star anise",
+      "2 cardamom pods",
+      "1 cup boiling water",
+      "1 tbsp sugar",
+      "1 tbsp condensed milk"
+    ],
+    "description": "1. Steep tea, anise, and cardamom in boiling water for 5 minutes.\n2. Strain the tea.\n3. Stir in sugar and condensed milk while hot.\n4. Enjoy warm or pour over ice.",
+    "imageName": "ThaiSpiceSweetTea",
+    "isFavorite": false,
+    "isCustom": false
+  },
+  {
+    "id": 30,
+    "name": "Turmeric Coffee Latte",
+    "temperature": "80°C",
+    "brewingTime": 300,
+    "ingredients": [
+      "1 shot espresso",
+      "1 cup milk",
+      "½ tsp turmeric powder",
+      "¼ tsp ginger powder",
+      "Pinch of black pepper",
+      "Honey to taste"
+    ],
+    "description": "1. Whisk milk, turmeric, ginger, and pepper in a saucepan over medium heat until hot and frothy.\n2. Brew espresso.\n3. Pour spiced milk over the espresso.\n4. Sweeten with honey.",
+    "imageName": "TurmericCoffeeLatte",
     "isFavorite": false,
     "isCustom": false
   }
 ]
-

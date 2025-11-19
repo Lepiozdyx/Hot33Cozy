@@ -34,13 +34,6 @@ struct MainTabView: View {
         .accentColor(.tabIconActive)
         .environmentObject(dataManager)
         .environmentObject(recipeManager)
-        .onAppear {
-            let appearance = UITabBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = UIColor(Color.tabBarBackground)
-            UITabBar.appearance().standardAppearance = appearance
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
     }
 }
 
