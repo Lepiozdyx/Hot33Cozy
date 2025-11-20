@@ -5,7 +5,7 @@ struct RecipeBookView: View {
     @State private var showingAddRecipe = false
     
     let columns = [
-        GridItem(.adaptive(minimum: 150), spacing: 16)
+        GridItem(.adaptive(minimum: 150), spacing: 12)
     ]
     
     var body: some View {
@@ -15,7 +15,7 @@ struct RecipeBookView: View {
                     .ignoresSafeArea()
                 
                 ScrollView {
-                    LazyVGrid(columns: columns, spacing: 16) {
+                    LazyVGrid(columns: columns, spacing: 12) {
                         ForEach(recipeManager.allRecipes) { recipe in
                             NavigationLink(destination: RecipeDetailView(recipe: recipe)) {
                                 RecipeCardView(recipe: recipe) {
@@ -27,6 +27,7 @@ struct RecipeBookView: View {
                     }
                     .padding(16)
                 }
+                .scrollIndicators(.hidden)
             }
             .navigationTitle("Recipe Book")
             .navigationBarTitleDisplayMode(.inline)

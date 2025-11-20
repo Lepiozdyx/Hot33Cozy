@@ -15,9 +15,8 @@ struct RecipeDetailView: View {
                     ZStack(alignment: .bottom) {
                         Image(recipe.imageName)
                             .resizable()
-                            .scaledToFill()
-                            .frame(height: 300)
-                            .clipped()
+                            .scaledToFit()
+//                            .clipped()
                         
                         LinearGradient(
                             colors: [.clear, .black.opacity(0.8)],
@@ -58,7 +57,7 @@ struct RecipeDetailView: View {
                         }
                         .padding(16)
                     }
-                    .frame(height: 300)
+                    .frame(height: 230)
                     
                     // Content
                     VStack(alignment: .leading, spacing: 24) {
@@ -93,18 +92,13 @@ struct RecipeDetailView: View {
                                 .foregroundColor(.textSecondary)
                                 .lineSpacing(4)
                         }
-                        
-                        Button(action: { navigateToTimer = true }) {
-                            Text("Start Timer")
-                        }
-                        .buttonStyle(.primary)
-                        .padding(.top, 16)
-                        .padding(.bottom, 32)
                     }
                     .padding(20)
                 }
             }
+            .scrollIndicators(.hidden)
         }
+        .navigationTitle("Recipe")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

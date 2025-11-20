@@ -5,63 +5,61 @@ struct RecipeCardView: View {
     let onFavoriteToggle: () -> Void
     
     var body: some View {
-        VStack(spacing: 0) {
-            ZStack(alignment: .topTrailing) {
-                ZStack {
-                    Color.backgroundEmphasis
-                    
-                    Image(recipe.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .clipped()
-                }
-                .aspectRatio(3/4, contentMode: .fit)
-                
-                Button(action: onFavoriteToggle) {
-                    Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
-                        .font(.system(size: 20))
-                        .foregroundColor(recipe.isFavorite ? .favoriteHeart : .textSecondary)
-                        .padding(8)
-                        .background(Color.backgroundEmphasis.opacity(0.8))
-                        .clipShape(Circle())
-                }
-                .buttonStyle(.plain)
-                .padding(8)
+        ZStack(alignment: .bottom) {
+            GeometryReader { geo in
+                Image(recipe.imageName)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    .clipped()
             }
             
+            LinearGradient(
+                colors: [.clear, .black.opacity(0.8)],
+                startPoint: .center,
+                endPoint: .bottom
+            )
+            .allowsHitTesting(false)
+
             VStack(alignment: .leading, spacing: 4) {
                 Text(recipe.name)
                     .font(.h3CardTitle)
-                    .foregroundColor(.textPrimary)
-                    .lineLimit(1)
-                
+                    .foregroundColor(.white)
+
                 HStack(spacing: 12) {
-                    HStack(spacing: 4) {
-                        Image(systemName: "thermometer")
-                            .font(.system(size: 10))
-                        Text(recipe.temperature)
-                            .font(.bodySecondary)
-                    }
-                    
-                    HStack(spacing: 4) {
-                        Image(systemName: "clock")
-                            .font(.system(size: 10))
-                        Text("\(recipe.brewingTime / 60)min")
-                            .font(.bodySecondary)
-                    }
+                    Label(recipe.temperature, systemImage: "thermometer")
+                    Label("\(recipe.brewingTime / 60)min", systemImage: "clock")
                 }
-                .foregroundColor(.textSecondary)
+                .font(.bodySecondary)
+                .foregroundColor(.white.opacity(0.9))
             }
-            .padding(8)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Color.backgroundEmphasis)
+            .padding()
         }
-        .background(Color.backgroundSurface)
-        .cornerRadius(12)
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         .overlay(
-            RoundedRectangle(cornerRadius: 12)
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .stroke(Color.accentYellow, lineWidth: 2)
         )
+        .overlay(alignment: .topTrailing) {
+            Button(action: onFavoriteToggle) {
+                Image(systemName: recipe.isFavorite ? "heart.fill" : "heart")
+                    .font(.system(size: 20))
+                    .foregroundColor(recipe.isFavorite ? .favoriteHeart : .white)
+                    .shadow(color: .red, radius: 1)
+            }
+            .buttonStyle(.plain)
+            .padding(8)
+        }
+        .frame(height: 260)
     }
 }
 
+
+
+#Preview {
+    HStack {
+        RecipeCardView(recipe: Recipe.mock, onFavoriteToggle: {})
+        RecipeCardView(recipe: Recipe.mock, onFavoriteToggle: {})
+    }
+}
