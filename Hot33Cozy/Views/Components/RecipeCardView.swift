@@ -19,19 +19,32 @@ struct RecipeCardView: View {
                 startPoint: .center,
                 endPoint: .bottom
             )
-            .allowsHitTesting(false)
+//            .allowsHitTesting(false)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(recipe.name)
                     .font(.h3CardTitle)
                     .foregroundColor(.white)
+                    .multilineTextAlignment(.leading)
 
                 HStack(spacing: 12) {
-                    Label(recipe.temperature, systemImage: "thermometer")
-                    Label("\(recipe.brewingTime / 60)min", systemImage: "clock")
+                    HStack(spacing: 4) {
+                        Image(systemName: "thermometer")
+                            .font(.system(size: 10))
+                            .foregroundStyle(.red)
+                        Text(recipe.temperature)
+                            .font(.bodySecondary)
+                    }
+                    
+                    HStack(spacing: 4) {
+                        Image(systemName: "clock")
+                            .font(.system(size: 10))
+                            .foregroundStyle(.red)
+                        Text("\(recipe.brewingTime / 60)min")
+                            .font(.bodySecondary)
+                    }
                 }
-                .font(.bodySecondary)
-                .foregroundColor(.white.opacity(0.9))
+                .foregroundColor(.textSecondary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()

@@ -28,7 +28,6 @@ struct FavoritesView: View {
                                         recipeManager.toggleFavorite(recipeID: recipe.id)
                                     }
                                 }
-                                .buttonStyle(.plain)
                             }
                         }
                         .padding()
