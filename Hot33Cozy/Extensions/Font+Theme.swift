@@ -2,6 +2,7 @@ import SwiftUI
 
 extension Font {
     static let displayTimer = Font.system(size: 40, weight: .regular)
+    static let onbTitle = Font.system(size: 32, weight: .bold)
     static let h1ScreenTitle = Font.system(size: 20, weight: .semibold)
     static let h2SectionTitle = Font.system(size: 18, weight: .bold)
     static let h3CardTitle = Font.system(size: 16, weight: .semibold)

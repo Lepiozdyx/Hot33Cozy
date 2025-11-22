@@ -11,6 +11,8 @@ struct Ritual: Identifiable, Codable {
     var drinkID: Int?
     var imageData: Data?
     
+    static let mock = Ritual(id: UUID(), title: "Ritual", notes: "", date: Date(), temperature: "", brewingTime: 15, drinkID: 1, imageData: nil)
+    
     init(
         id: UUID = UUID(),
         title: String,

@@ -6,19 +6,19 @@ struct OnboardingView: View {
     
     private let pages: [OnboardingPage] = [
         OnboardingPage(
-            icon: "cup.and.saucer.fill",
-            title: "Track Your Rituals",
-            description: "Record every warm beverage moment with notes, photos, and brewing details."
+            icon: "img_onb1",
+            title: "Mindfulness in every cup",
+            description: "Write down what and when you drink — turn ordinary drinks into cozy habits."
         ),
         OnboardingPage(
-            icon: "book.fill",
-            title: "Discover Recipes",
-            description: "Explore curated tea and beverage recipes with precise brewing parameters."
+            icon: "img_onb2",
+            title: "Brew with perfect precision",
+            description: "Use the built-in timer and recipes to make perfect drinks every time, from green tea to cocoa with pepper."
         ),
         OnboardingPage(
-            icon: "timer",
-            title: "Perfect Timing",
-            description: "Use the built-in timer to brew your drinks to perfection every time."
+            icon: "img_onb3",
+            title: "Track your warm habits",
+            description: "Look at how many cups you've drunk, what your favorite drinks are, and how your rituals are changing."
         )
     ]
     
@@ -27,7 +27,7 @@ struct OnboardingView: View {
             Color.backgroundMain
                 .ignoresSafeArea()
             
-            VStack(spacing: 0) {
+            VStack {
                 TabView(selection: $currentPage) {
                     ForEach(0..<pages.count, id: \.self) { index in
                         OnboardingPageView(page: pages[index])
@@ -35,9 +35,10 @@ struct OnboardingView: View {
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .always))
-                .indexViewStyle(.page(backgroundDisplayMode: .always))
+                .indexViewStyle(.page(backgroundDisplayMode: .automatic))
+                .ignoresSafeArea(edges: .top)
                 
-                Button(action: {
+                Button {
                     if currentPage < pages.count - 1 {
                         withAnimation {
                             currentPage += 1
@@ -45,12 +46,12 @@ struct OnboardingView: View {
                     } else {
                         hasCompletedOnboarding = true
                     }
-                }) {
+                } label: {
                     Text(currentPage < pages.count - 1 ? "Next" : "Get Started")
                 }
                 .buttonStyle(.primary)
-                .padding(.horizontal, 24)
-                .padding(.bottom, 40)
+                .padding(.horizontal)
+                .padding(.bottom, 20)
             }
         }
     }
@@ -66,30 +67,31 @@ struct OnboardingPageView: View {
     let page: OnboardingPage
     
     var body: some View {
-        VStack(spacing: 32) {
-            Spacer()
-            
-            Image(systemName: page.icon)
-                .font(.system(size: 100))
-                .foregroundColor(.accentYellow)
-            
-            VStack(spacing: 16) {
+        VStack(spacing: 20) {
+            Image(page.icon)
+                .resizable()
+                .scaledToFit()
+                .ignoresSafeArea()
+
+            VStack(spacing: 8) {
                 Text(page.title)
-                    .font(.h1ScreenTitle)
+                    .font(.onbTitle)
                     .foregroundColor(.textPrimary)
-                
+                    .multilineTextAlignment(.center)
+
                 Text(page.description)
-                    .font(.bodyPrimary)
+                    .font(.h1ScreenTitle)
                     .foregroundColor(.textSecondary)
                     .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
+                    .padding(.horizontal)
             }
-            
+
             Spacer()
         }
-        .frame(maxWidth: .infinity)
+        .ignoresSafeArea(edges: .top)
     }
 }
+
 
 #Preview {
     OnboardingView()
