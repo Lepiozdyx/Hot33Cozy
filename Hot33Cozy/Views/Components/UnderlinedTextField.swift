@@ -24,3 +24,12 @@ struct UnderlinedTextField: View {
     }
 }
 
+#Preview {
+    ZStack {
+        Color.backgroundMain
+            .ignoresSafeArea()
+        
+        UnderlinedTextField(label: "Label", text: .constant("Text"), placeholder: "Placeholder")
+            .padding()
+    }
+}

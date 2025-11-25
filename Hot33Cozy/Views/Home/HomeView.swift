@@ -19,10 +19,7 @@ struct HomeView: View {
                 } else {
                     List {
                         ForEach(viewModel.groupedRituals(), id: \.0) { section, rituals in
-                            Section(header: Text(section)
-                                .font(.h2SectionTitle)
-                                .foregroundColor(.textPrimary)
-                            ) {
+                            Section {
                                 ForEach(rituals) { ritual in
                                     NavigationLink(destination: RitualDetailView(ritual: ritual)) {
                                         RitualRowView(ritual: ritual)
@@ -33,10 +30,16 @@ struct HomeView: View {
                                         viewModel.deleteRitual(rituals[index])
                                     }
                                 }
+                            } header: {
+                                Text(section)
+                                    .font(.h2SectionTitle)
+                                    .foregroundColor(.textPrimary)
                             }
                         }
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Color.clear)
                     }
-                    .listStyle(.plain)
+                    .listStyle(.automatic)
                     .scrollContentBackground(.hidden)
                 }
             }
@@ -66,7 +69,7 @@ struct RitualRowView: View {
     let ritual: Ritual
     
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 4) {
                 Text(ritual.title)
                     .font(.h3CardTitle)
@@ -76,6 +79,7 @@ struct RitualRowView: View {
                     Text(notes)
                         .font(.bodySecondary)
                         .foregroundColor(.textSecondary)
+                        .italic()
                         .lineLimit(1)
                 }
             }
@@ -83,12 +87,10 @@ struct RitualRowView: View {
             Spacer()
             
             Text(ritual.date, style: .time)
-                .font(.bodySecondary)
-                .foregroundColor(.textSecondary)
+                .font(.h3CardTitle)
+                .foregroundColor(.textPrimary)
         }
         .padding(.vertical, 8)
-        .listRowBackground(Color.backgroundSurface)
-        .listRowSeparatorTint(Color.divider)
     }
 }
 

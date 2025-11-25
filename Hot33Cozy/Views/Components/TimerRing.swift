@@ -29,3 +29,11 @@ struct TimerRing: View {
     }
 }
 
+#Preview {
+    ZStack {
+        Color.backgroundMain
+            .ignoresSafeArea()
+        
+        TimerRing(progress: 120, timeString: "120")
+    }
+}

@@ -25,3 +25,15 @@ struct EmptyStateView: View {
     }
 }
 
+#Preview {
+    ZStack {
+        Color.backgroundMain
+            .ignoresSafeArea()
+        
+        EmptyStateView(
+            icon: "cup.and.saucer",
+            title: "No Rituals Yet",
+            message: "Start tracking your warm beverage moments by tapping the + button above."
+        )
+    }
+}

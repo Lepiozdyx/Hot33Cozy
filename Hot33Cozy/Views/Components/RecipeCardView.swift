@@ -19,7 +19,6 @@ struct RecipeCardView: View {
                 startPoint: .center,
                 endPoint: .bottom
             )
-//            .allowsHitTesting(false)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(recipe.name)
@@ -75,4 +74,5 @@ struct RecipeCardView: View {
         RecipeCardView(recipe: Recipe.mock, onFavoriteToggle: {})
         RecipeCardView(recipe: Recipe.mock, onFavoriteToggle: {})
     }
+    .padding()
 }

@@ -32,7 +32,7 @@
     ],
     "description": "1. Pour all ingredients into a slow cooker.\n2. Cover and cook on low for 2 hours, stirring occasionally, until chocolate chips are melted.\n3. Whisk well before serving to ensure mixture is smooth.\n4. Ladle into mugs and serve warm.",
     "imageName": "BestSlowCookerHotChocolate",
-    "isFavorite": true,
+    "isFavorite": false,
     "isCustom": false
   },
   {
@@ -310,7 +310,7 @@
     ],
     "description": "1. Place ice, coffee, milk, chocolate chips, and syrup into a blender.\n2. Blend on high until smooth and creamy.\n3. Pour into a tall glass.\n4. Top with whipped cream and extra chocolate syrup.",
     "imageName": "JavaChipFrappe",
-    "isFavorite": true,
+    "isFavorite": false,
     "isCustom": false
   },
   {
@@ -326,7 +326,7 @@
     ],
     "description": "1. Steep Earl Grey tea in hot water for 3-5 minutes.\n2. Remove tea bag and stir in vanilla syrup.\n3. Top with steamed, frothy milk.\n4. Serve immediately.",
     "imageName": "LondonFog",
-    "isFavorite": true,
+    "isFavorite": false,
     "isCustom": false
   },
   {
@@ -407,7 +407,7 @@
     ],
     "description": "1. Combine heavy cream, condensed milk, chocolate chips, and milk in a large pot.\n2. Heat over medium-low, stirring constantly until chips melt and mixture is hot.\n3. Stir in vanilla.\n4. Serve rich and creamy.",
     "imageName": "PolarExpressHotChocolate",
-    "isFavorite": true,
+    "isFavorite": false,
     "isCustom": false
   },
   {

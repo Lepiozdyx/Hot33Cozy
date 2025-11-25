@@ -23,7 +23,7 @@ struct LoadingView: View {
                 Spacer()
                 
                 Capsule()
-                    .foregroundStyle(.gray.opacity(0.4))
+                    .foregroundStyle(.white.opacity(0.4))
                     .frame(maxWidth: 250, maxHeight: 20)
                     .overlay {
                         Capsule()
