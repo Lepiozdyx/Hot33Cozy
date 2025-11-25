@@ -36,6 +36,9 @@ struct FavoritesView: View {
             }
             .navigationTitle("Favorites")
             .navigationBarTitleDisplayMode(.inline)
+            .safeAreaInset(edge: .bottom) {
+                Color.clear.frame(height: 100)
+            }
         }
     }
 }

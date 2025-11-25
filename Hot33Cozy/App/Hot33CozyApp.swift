@@ -8,6 +8,7 @@ struct Hot33CozyApp: App {
         WindowGroup {
             if hasCompletedOnboarding {
                 MainTabView()
+                    .preferredColorScheme(.dark)
             } else {
                 OnboardingView()
             }

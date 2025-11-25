@@ -61,6 +61,9 @@ struct HomeView: View {
             .onAppear {
                 viewModel.loadRituals()
             }
+            .safeAreaInset(edge: .bottom) {
+                Color.clear.frame(height: 100)
+            }
         }
     }
 }
@@ -90,7 +93,6 @@ struct RitualRowView: View {
                 .font(.h3CardTitle)
                 .foregroundColor(.textPrimary)
         }
-        .padding(.vertical, 8)
     }
 }
 

@@ -16,7 +16,6 @@ struct RecipeDetailView: View {
                         Image(recipe.imageName)
                             .resizable()
                             .scaledToFit()
-//                            .clipped()
                         
                         LinearGradient(
                             colors: [.clear, .black.opacity(0.8)],
@@ -114,6 +113,9 @@ struct RecipeDetailView: View {
                 drinkName: recipe.name,
                 autoStart: true
             )
+        }
+        .safeAreaInset(edge: .bottom) {
+            Color.clear.frame(height: 100)
         }
     }
 }

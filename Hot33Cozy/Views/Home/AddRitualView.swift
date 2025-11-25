@@ -5,6 +5,8 @@ struct AddRitualView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var recipeManager: RecipeManager
     
+    @FocusState private var isFocused: Bool
+    
     let onSave: (Ritual) -> Void
     
     @State private var title = ""
@@ -24,9 +26,59 @@ struct AddRitualView: View {
                     .ignoresSafeArea()
                 
                 ScrollView {
-                    VStack(spacing: 24) {
+                    VStack {
+                        VStack(alignment: .leading, spacing: 16) {
+                            SectionHeader(title: "Title")
+                            TextField("Enter drink name", text: $title)
+                                .font(.bodyPrimary)
+                                .foregroundColor(.textSecondary)
+                                .padding()
+                                .background(Color.backgroundSurface)
+                                .cornerRadius(10)
+                                .focused($isFocused)
+                        }
+                        
+                        VStack(alignment: .leading, spacing: 16) {
+                            SectionHeader(title: "Notes")
+                            TextEditor(text: $notes)
+                                .font(.bodyPrimary)
+                                .foregroundColor(.textSecondary)
+                                .frame(minHeight: 60)
+                                .padding(8)
+                                .background(Color.backgroundSurface)
+                                .cornerRadius(10)
+                                .scrollContentBackground(.hidden)
+                                .focused($isFocused)
+                        }
+                        
+                        HStack(alignment: .top) {
+                            VStack(alignment: .leading, spacing: 16) {
+                                SectionHeader(title: "Temperature")
+                                TextField("e.g., 80°C", text: $temperature)
+                                    .font(.bodyPrimary)
+                                    .foregroundColor(.textSecondary)
+                                    .padding()
+                                    .background(Color.backgroundSurface)
+                                    .cornerRadius(10)
+                            }
+                            
+                            VStack(alignment: .leading, spacing: 16) {
+                                SectionHeader(title: "Brewing Time")
+                                TextField("e.g., 3", text: $brewingTimeMinutes)
+                                    .font(.bodyPrimary)
+                                    .foregroundColor(.textSecondary)
+                                    .keyboardType(.numberPad)
+                                    .padding()
+                                    .background(Color.backgroundSurface)
+                                    .cornerRadius(10)
+                            }
+                        }
+                        .focused($isFocused)
+                        .keyboardType(.numberPad)
+                        
                         PhotosPicker(selection: $selectedPhoto, matching: .images) {
                             VStack(spacing: 8) {
+                                SectionHeader(title: "Photo")
                                 if let photoData, let uiImage = UIImage(data: photoData) {
                                     Image(uiImage: uiImage)
                                         .resizable()
@@ -61,57 +113,6 @@ struct AddRitualView: View {
                         }
                         
                         VStack(alignment: .leading, spacing: 16) {
-                            SectionHeader(title: "Title")
-                            TextField("Enter drink name", text: $title)
-                                .font(.bodyPrimary)
-                                .foregroundColor(.textSecondary)
-                                .padding()
-                                .background(Color.backgroundSurface)
-                                .cornerRadius(10)
-                        }
-                        
-                        VStack(alignment: .leading, spacing: 16) {
-                            SectionHeader(title: "Notes")
-                            TextEditor(text: $notes)
-                                .font(.bodyPrimary)
-                                .foregroundColor(.textSecondary)
-                                .frame(minHeight: 100)
-                                .padding(8)
-                                .background(Color.backgroundSurface)
-                                .cornerRadius(10)
-                                .scrollContentBackground(.hidden)
-                        }
-                        
-                        VStack(alignment: .leading, spacing: 16) {
-                            SectionHeader(title: "Date & Time")
-                            DatePicker("", selection: $date)
-                                .datePickerStyle(.compact)
-                                .labelsHidden()
-                                .colorScheme(.dark)
-                        }
-                        
-                        VStack(alignment: .leading, spacing: 16) {
-                            SectionHeader(title: "Temperature")
-                            TextField("e.g., 80°C", text: $temperature)
-                                .font(.bodyPrimary)
-                                .foregroundColor(.textSecondary)
-                                .padding()
-                                .background(Color.backgroundSurface)
-                                .cornerRadius(10)
-                        }
-                        
-                        VStack(alignment: .leading, spacing: 16) {
-                            SectionHeader(title: "Brewing Time (minutes)")
-                            TextField("e.g., 3", text: $brewingTimeMinutes)
-                                .font(.bodyPrimary)
-                                .foregroundColor(.textSecondary)
-                                .keyboardType(.numberPad)
-                                .padding()
-                                .background(Color.backgroundSurface)
-                                .cornerRadius(10)
-                        }
-                        
-                        VStack(alignment: .leading, spacing: 16) {
                             SectionHeader(title: "Select from Menu")
                             Button(action: { showingRecipeSelection = true }) {
                                 HStack {
@@ -135,10 +136,12 @@ struct AddRitualView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                    Button {
                         dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.textPrimary)
                     }
-                    .foregroundColor(.textPrimary)
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -151,6 +154,9 @@ struct AddRitualView: View {
             }
             .sheet(isPresented: $showingRecipeSelection) {
                 RecipeSelectionView(selectedRecipe: $selectedRecipe)
+            }
+            .onTapGesture {
+                isFocused = false
             }
         }
     }

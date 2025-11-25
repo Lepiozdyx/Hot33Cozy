@@ -41,6 +41,9 @@ struct RecipeBookView: View {
             .sheet(isPresented: $showingAddRecipe) {
                 AddRecipeView()
             }
+            .safeAreaInset(edge: .bottom) {
+                Color.clear.frame(height: 100)
+            }
         }
     }
 }

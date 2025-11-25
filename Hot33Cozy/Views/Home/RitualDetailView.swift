@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RitualDetailView: View {
-    let ritual: Ritual
+    var ritual: Ritual
     @State private var navigateToTimer = false
     
     var body: some View {
@@ -10,67 +10,118 @@ struct RitualDetailView: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
+                VStack(alignment: .leading, spacing: 16) {
                     if let imageData = ritual.imageData, let uiImage = UIImage(data: imageData) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 250)
-                            .clipped()
-                            .cornerRadius(10)
+                        ZStack(alignment: .bottomLeading) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 250)
+                                .clipped()
+                                .cornerRadius(10)
+                            
+                            LinearGradient(
+                                colors: [.clear, .black.opacity(0.8)],
+                                startPoint: .center,
+                                endPoint: .bottom
+                            )
+                            
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(ritual.title)
+                                    .font(.h1ScreenTitle)
+                                    .foregroundColor(.textPrimary)
+                                
+                                HStack(spacing: 24) {
+                                    if let temperature = ritual.temperature {
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Label {
+                                                Text(temperature)
+                                                    .font(.bodyPrimary)
+                                                    .foregroundColor(.textSecondary)
+                                            } icon: {
+                                                Image(systemName: "thermometer")
+                                                    .foregroundColor(.primaryRed)
+                                            }
+                                        }
+                                    }
+                                    
+                                    if let brewingTime = ritual.brewingTime {
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Label {
+                                                Text("\(brewingTime / 60) min")
+                                                    .font(.bodyPrimary)
+                                                    .foregroundColor(.textSecondary)
+                                            } icon: {
+                                                Image(systemName: "clock")
+                                                    .foregroundColor(.primaryRed)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .padding()
+                        }
+                        .padding(.top, 8)
+                        .frame(height: 230)
+                    }
+                    
+                    if ritual.imageData == nil {
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text(ritual.title)
+                                .font(.h1ScreenTitle)
+                                .foregroundColor(.textPrimary)
+                            
+                            HStack(spacing: 24) {
+                                if let temperature = ritual.temperature {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Label {
+                                            Text(temperature)
+                                                .font(.bodyPrimary)
+                                                .foregroundColor(.textSecondary)
+                                        } icon: {
+                                            Image(systemName: "thermometer")
+                                                .foregroundColor(.primaryRed)
+                                        }
+                                    }
+                                }
+                                
+                                if let brewingTime = ritual.brewingTime {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Label {
+                                            Text("\(brewingTime / 60) min")
+                                                .font(.bodyPrimary)
+                                                .foregroundColor(.textSecondary)
+                                        } icon: {
+                                            Image(systemName: "clock")
+                                                .foregroundColor(.primaryRed)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .padding()
                     }
                     
                     VStack(alignment: .leading, spacing: 16) {
-                        Text(ritual.title)
-                            .font(.h1ScreenTitle)
-                            .foregroundColor(.textPrimary)
-                        
                         if let notes = ritual.notes {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text("Notes")
                                     .font(.h2SectionTitle)
                                     .foregroundColor(.textPrimary)
                                 Text(notes)
-                                    .font(.bodyPrimary)
+                                    .font(.h3CardTitle)
                                     .foregroundColor(.textSecondary)
                             }
                         }
                         
-                        HStack(spacing: 24) {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Date & Time")
-                                    .font(.bodySecondary)
-                                    .foregroundColor(.textMuted)
-                                Text(ritual.date, style: .date)
-                                    .font(.bodyPrimary)
-                                    .foregroundColor(.textSecondary)
-                                Text(ritual.date, style: .time)
-                                    .font(.bodyPrimary)
-                                    .foregroundColor(.textSecondary)
-                            }
-                            
-                            if let temperature = ritual.temperature {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Temperature")
-                                        .font(.bodySecondary)
-                                        .foregroundColor(.textMuted)
-                                    Text(temperature)
-                                        .font(.bodyPrimary)
-                                        .foregroundColor(.textSecondary)
-                                }
-                            }
-                            
-                            if let brewingTime = ritual.brewingTime {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Brewing Time")
-                                        .font(.bodySecondary)
-                                        .foregroundColor(.textMuted)
-                                    Text("\(brewingTime / 60) min")
-                                        .font(.bodyPrimary)
-                                        .foregroundColor(.textSecondary)
-                                }
-                            }
+                        HStack(spacing: 8) {
+                            Text(ritual.date, style: .date)
+                                .font(.h3CardTitle)
+                                .foregroundColor(.textSecondary)
+                            Text(ritual.date, style: .time)
+                                .font(.h3CardTitle)
+                                .foregroundColor(.textSecondary)
                         }
                         
                         Button(action: { navigateToTimer = true }) {
