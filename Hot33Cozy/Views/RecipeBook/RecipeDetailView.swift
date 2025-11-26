@@ -10,7 +10,7 @@ struct RecipeDetailView: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                VStack(spacing: 0) {
+                VStack(alignment: .leading, spacing: 0) {
                     // Header Image with Overlay
                     ZStack(alignment: .bottom) {
                         Image(recipe.imageName)
@@ -54,7 +54,7 @@ struct RecipeDetailView: View {
                                     .font(.title2)
                             }
                         }
-                        .padding(16)
+                        .padding()
                     }
                     .frame(height: 230)
                     
