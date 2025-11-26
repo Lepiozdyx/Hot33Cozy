@@ -12,17 +12,8 @@ struct StatisticsView: View {
                 
                 ScrollView {
                     VStack(spacing: 24) {
-                        Picker("Period", selection: $viewModel.selectedPeriod) {
-                            ForEach(TimePeriod.allCases, id: \.self) { period in
-                                Text(period.rawValue).tag(period)
-                            }
-                        }
-                        .pickerStyle(.segmented)
-                        .padding(.horizontal, 16)
-                        .colorScheme(.dark)
-                        .onChange(of: viewModel.selectedPeriod) { _, _ in
-                            viewModel.loadData()
-                        }
+                        
+                        periodSelector
                         
                         if !viewModel.chartData.isEmpty {
                             VStack(alignment: .leading, spacing: 16) {
@@ -76,10 +67,10 @@ struct StatisticsView: View {
                                 }
                                 .padding(.horizontal, 16)
                             }
-                            .padding(.vertical, 16)
-                            .background(Color.backgroundSurface)
+                            .padding(.vertical, 8)
+                            .background(.thinMaterial)
                             .cornerRadius(10)
-                            .padding(.horizontal, 16)
+                            .padding(.horizontal)
                         }
                         
                         if !viewModel.detailedRituals.isEmpty {
@@ -130,11 +121,8 @@ struct StatisticsView: View {
                                             }
                                         }
                                     }
-                                    .padding(16)
-                                    .background(Color.backgroundSurface)
-                                    .cornerRadius(10)
                                 }
-                                .padding(.horizontal, 16)
+                                .padding(.horizontal)
                             }
                         } else {
                             EmptyStateView(
@@ -145,7 +133,7 @@ struct StatisticsView: View {
                             .padding(.top, 40)
                         }
                     }
-                    .padding(.vertical, 16)
+                    .padding(.vertical)
                 }
             }
             .navigationTitle("Statistics")
@@ -154,6 +142,51 @@ struct StatisticsView: View {
                 viewModel.loadData()
             }
         }
+    }
+    
+    var periodSelector: some View {
+        HStack(spacing: 0) {
+            ForEach(TimePeriod.allCases, id: \.self) { period in
+                let isSelected = viewModel.selectedPeriod == period
+                
+                Button {
+                    guard !isSelected else { return }
+                    viewModel.selectedPeriod = period
+                    viewModel.loadData()
+                } label: {
+                    Text(period.rawValue)
+                        .font(.buttonLabel)
+                        .foregroundColor(isSelected ? .textPrimary : .textSecondary)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 45)
+                        .background(
+                            Group {
+                                if isSelected {
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                        .fill(Color.primaryRed)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                                .stroke(Color.green, lineWidth: 1)
+                                        )
+                                } else {
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                        .fill(Color.clear)
+                                }
+                            }
+                        )
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .background(
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                .fill(Color.backgroundSurface)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .stroke(Color.primaryRed, lineWidth: 1)
+                )
+        )
+        .padding(.horizontal, 40)
     }
 }
 
