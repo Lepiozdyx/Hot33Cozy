@@ -3,11 +3,14 @@ import Combine
 
 final class HomeViewModel: ObservableObject {
     @Published var rituals: [Ritual] = []
+    @Published var dailyDrink: Recipe?
     
     private let dataManager = DataManager.shared
+    private let recipeManager = RecipeManager.shared
     
     init() {
         loadRituals()
+        loadDailyDrink()
     }
     
     func loadRituals() {
@@ -45,6 +48,18 @@ final class HomeViewModel: ObservableObject {
             }
             return (title, rituals.sorted { $0.date > $1.date })
         }
+    }
+    
+    private func loadDailyDrink() {
+        let recipes = recipeManager.presetRecipes
+        guard !recipes.isEmpty else { return }
+        
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let daysSince1970 = Int(today.timeIntervalSince1970 / 86400)
+        let index = daysSince1970 % recipes.count
+        
+        dailyDrink = recipes[index]
     }
 }
 

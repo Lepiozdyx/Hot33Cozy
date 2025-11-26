@@ -18,6 +18,14 @@ struct HomeView: View {
                     )
                 } else {
                     List {
+                        if let dailyDrink = viewModel.dailyDrink {
+                            Section {
+                                DailyDealBanner(recipe: dailyDrink)
+                                    .listRowInsets(EdgeInsets())
+                                    .listRowBackground(Color.clear)
+                            }
+                        }
+                        
                         ForEach(viewModel.groupedRituals(), id: \.0) { section, rituals in
                             Section {
                                 ForEach(rituals) { ritual in
