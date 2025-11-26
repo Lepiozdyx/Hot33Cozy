@@ -54,7 +54,7 @@ struct AddRitualView: View {
                         HStack(alignment: .top) {
                             VStack(alignment: .leading, spacing: 16) {
                                 SectionHeader(title: "Temperature")
-                                TextField("e.g., 80°C", text: $temperature)
+                                TextField("80°C", text: $temperature)
                                     .font(.bodyPrimary)
                                     .foregroundColor(.textSecondary)
                                     .padding()
@@ -64,7 +64,7 @@ struct AddRitualView: View {
                             
                             VStack(alignment: .leading, spacing: 16) {
                                 SectionHeader(title: "Brewing Time")
-                                TextField("e.g., 3", text: $brewingTimeMinutes)
+                                TextField("5 min", text: $brewingTimeMinutes)
                                     .font(.bodyPrimary)
                                     .foregroundColor(.textSecondary)
                                     .keyboardType(.numberPad)

@@ -19,11 +19,10 @@ struct HomeView: View {
                 } else {
                     List {
                         if let dailyDrink = viewModel.dailyDrink {
-                            Section {
-                                DailyDealBanner(recipe: dailyDrink)
-                                    .listRowInsets(EdgeInsets())
-                                    .listRowBackground(Color.clear)
-                            }
+                            DailyDealBanner(recipe: dailyDrink)
+                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                .listRowBackground(Color.clear)
+                                .listRowSeparator(.hidden)
                         }
                         
                         ForEach(viewModel.groupedRituals(), id: \.0) { section, rituals in
@@ -47,7 +46,7 @@ struct HomeView: View {
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.clear)
                     }
-                    .listStyle(.automatic)
+                    .listStyle(.plain)
                     .scrollContentBackground(.hidden)
                 }
             }
