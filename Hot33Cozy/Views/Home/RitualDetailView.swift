@@ -100,19 +100,14 @@ struct RitualDetailView: View {
                                 }
                             }
                         }
-                        .padding()
+                        .padding([.top, .horizontal])
                     }
                     
                     VStack(alignment: .leading, spacing: 16) {
                         if let notes = ritual.notes {
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text("Notes")
-                                    .font(.h2SectionTitle)
-                                    .foregroundColor(.textPrimary)
-                                Text(notes)
-                                    .font(.h3CardTitle)
-                                    .foregroundColor(.textSecondary)
-                            }
+                            Text(notes)
+                                .font(.h3CardTitle)
+                                .foregroundColor(.textSecondary)
                         }
                         
                         HStack(spacing: 8) {
@@ -130,7 +125,7 @@ struct RitualDetailView: View {
                         .buttonStyle(.primary)
                         .padding(.top, 16)
                     }
-                    .padding(16)
+                    .padding(.horizontal)
                 }
             }
         }

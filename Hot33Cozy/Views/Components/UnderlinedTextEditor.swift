@@ -1,22 +1,38 @@
+//
+//  UnderlinedTextField 2.swift
+//  Hot33Cozy
+//
+//  Created by Alex on 26.11.2025.
+//
+
+
 import SwiftUI
 
-struct UnderlinedTextField: View {
+struct UnderlinedTextEditor: View {
     let label: String
     @Binding var text: String
     let placeholder: String
-    var keyboardType: UIKeyboardType = .default
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(label)
                 .font(.h2SectionTitle)
                 .foregroundColor(.textPrimary)
-            
-            TextField(placeholder, text: $text)
+
+            TextEditor(text: $text)
                 .font(.bodyPrimary)
                 .foregroundColor(.textSecondary)
                 .accentColor(.accentYellow)
-                .keyboardType(keyboardType)
+                .frame(minHeight: 30, maxHeight: 100)
+                .background(Color.clear)
+                .scrollContentBackground(.hidden)
+                .overlay(alignment: .leading) {
+                    if text.isEmpty {
+                        Text(placeholder)
+                            .font(.bodyPrimary)
+                            .foregroundColor(.textSecondary)
+                    }
+                }
             
             Rectangle()
                 .fill(Color.divider)
@@ -31,7 +47,7 @@ struct UnderlinedTextField: View {
         Color.backgroundMain
             .ignoresSafeArea()
         
-        UnderlinedTextField(label: "Label", text: .constant("Text"), placeholder: "Placeholder")
+        UnderlinedTextEditor(label: "Label", text: .constant("Text"), placeholder: "Placeholder")
             .padding()
     }
 }

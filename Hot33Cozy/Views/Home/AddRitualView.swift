@@ -27,54 +27,20 @@ struct AddRitualView: View {
                 
                 ScrollView {
                     VStack {
-                        VStack(alignment: .leading, spacing: 16) {
-                            SectionHeader(title: "Title")
-                            TextField("Enter drink name", text: $title)
-                                .font(.bodyPrimary)
-                                .foregroundColor(.textSecondary)
-                                .padding()
-                                .background(Color.backgroundSurface)
-                                .cornerRadius(10)
-                                .focused($isFocused)
-                        }
-                        
-                        VStack(alignment: .leading, spacing: 16) {
-                            SectionHeader(title: "Notes")
-                            TextEditor(text: $notes)
-                                .font(.bodyPrimary)
-                                .foregroundColor(.textSecondary)
-                                .frame(minHeight: 60)
-                                .padding(8)
-                                .background(Color.backgroundSurface)
-                                .cornerRadius(10)
-                                .scrollContentBackground(.hidden)
-                                .focused($isFocused)
-                        }
-                        
+                        UnderlinedTextField(label: "Title", text: $title, placeholder: "Enter drink name")
+                            .focused($isFocused)
+                     
                         HStack(alignment: .top) {
-                            VStack(alignment: .leading, spacing: 16) {
-                                SectionHeader(title: "Temperature")
-                                TextField("80°C", text: $temperature)
-                                    .font(.bodyPrimary)
-                                    .foregroundColor(.textSecondary)
-                                    .padding()
-                                    .background(Color.backgroundSurface)
-                                    .cornerRadius(10)
-                            }
-                            
-                            VStack(alignment: .leading, spacing: 16) {
-                                SectionHeader(title: "Brewing Time")
-                                TextField("5 min", text: $brewingTimeMinutes)
-                                    .font(.bodyPrimary)
-                                    .foregroundColor(.textSecondary)
-                                    .keyboardType(.numberPad)
-                                    .padding()
-                                    .background(Color.backgroundSurface)
-                                    .cornerRadius(10)
-                            }
+                            UnderlinedTextField(label: "Temperature", text: $temperature, placeholder: "80°C", keyboardType: .numberPad)
+                        
+                            UnderlinedTextField(label: "Brewing Time", text: $brewingTimeMinutes, placeholder: "5 min", keyboardType: .numberPad)
                         }
                         .focused($isFocused)
                         .keyboardType(.numberPad)
+                        
+                        UnderlinedTextEditor(label: "Notes", text: $notes, placeholder: "...")
+                            .focused($isFocused)
+                            .padding(.bottom)
                         
                         PhotosPicker(selection: $selectedPhoto, matching: .images) {
                             VStack(spacing: 8) {
