@@ -36,7 +36,6 @@ struct AddRitualView: View {
                             UnderlinedTextField(label: "Brewing Time", text: $brewingTimeMinutes, placeholder: "5 min", keyboardType: .numberPad)
                         }
                         .focused($isFocused)
-                        .keyboardType(.numberPad)
                         
                         UnderlinedTextEditor(label: "Notes", text: $notes, placeholder: "...")
                             .focused($isFocused)
