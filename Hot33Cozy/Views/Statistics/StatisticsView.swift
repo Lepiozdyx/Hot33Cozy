@@ -103,21 +103,38 @@ struct StatisticsView: View {
                                                 VStack(alignment: .leading, spacing: 4) {
                                                     Text(ritual.title)
                                                         .font(.bodyPrimary)
-                                                        .foregroundColor(.textSecondary)
+                                                        .foregroundColor(.textPrimary)
                                                     
-                                                    if let notes = ritual.notes, !notes.isEmpty {
-                                                        Text(notes)
-                                                            .font(.bodySecondary)
-                                                            .foregroundColor(.textMuted)
-                                                            .lineLimit(1)
+                                                    HStack(spacing: 12) {
+                                                        if let temperature = ritual.temperature, !temperature.isEmpty {
+                                                            HStack(spacing: 4) {
+                                                                Image(systemName: "thermometer")
+                                                                    .font(.system(size: 10))
+                                                                    .foregroundStyle(.red)
+                                                                Text(temperature)
+                                                                    .font(.bodySecondary)
+                                                                    .foregroundColor(.textMuted)
+                                                            }
+                                                        }
+                                                        
+                                                        if let brewingTime = ritual.brewingTime {
+                                                            HStack(spacing: 4) {
+                                                                Image(systemName: "timer")
+                                                                    .font(.system(size: 10))
+                                                                    .foregroundStyle(.red)
+                                                                Text("\(brewingTime) min")
+                                                                    .font(.bodySecondary)
+                                                                    .foregroundColor(.textMuted)
+                                                            }
+                                                        }
                                                     }
                                                 }
                                                 
                                                 Spacer()
                                                 
                                                 Text(ritual.date, style: .time)
-                                                    .font(.bodySecondary)
-                                                    .foregroundColor(.textMuted)
+                                                    .font(.bodyPrimary)
+                                                    .foregroundColor(.textPrimary)
                                             }
                                         }
                                     }
