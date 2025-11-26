@@ -13,6 +13,7 @@ struct ChartDataPoint: Identifiable {
     let count: Int
 }
 
+@MainActor
 final class StatisticsViewModel: ObservableObject {
     @Published var selectedPeriod: TimePeriod = .day
     @Published var chartData: [ChartDataPoint] = []

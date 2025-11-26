@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 
+@MainActor
 final class HomeViewModel: ObservableObject {
     @Published var rituals: [Ritual] = []
     @Published var dailyDrink: Recipe?

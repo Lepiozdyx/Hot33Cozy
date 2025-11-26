@@ -7,11 +7,19 @@ struct RecipeCardView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             GeometryReader { geo in
-                Image(recipe.imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: geo.size.width, height: geo.size.height)
-                    .clipped()
+                if recipe.isCustom, let image = loadCustomImage() {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geo.size.width, height: geo.size.height)
+                        .clipped()
+                } else {
+                    Image(recipe.imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geo.size.width, height: geo.size.height)
+                        .clipped()
+                }
             }
             
             LinearGradient(
@@ -64,6 +72,21 @@ struct RecipeCardView: View {
             .padding(8)
         }
         .frame(height: 260)
+    }
+    
+    private func loadCustomImage() -> UIImage? {
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return nil
+        }
+        
+        let fileURL = documentsDirectory.appendingPathComponent(recipe.imageName)
+        
+        guard let imageData = try? Data(contentsOf: fileURL),
+              let image = UIImage(data: imageData) else {
+            return nil
+        }
+        
+        return image
     }
 }
 

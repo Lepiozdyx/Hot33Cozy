@@ -13,9 +13,15 @@ struct RecipeDetailView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     // Header Image with Overlay
                     ZStack(alignment: .bottom) {
-                        Image(recipe.imageName)
-                            .resizable()
-                            .scaledToFit()
+                        if recipe.isCustom, let image = loadCustomImage() {
+                            Image(uiImage: image)
+                                .resizable()
+//                                .scaledToFit()
+                        } else {
+                            Image(recipe.imageName)
+                                .resizable()
+//                                .scaledToFit()
+                        }
                         
                         LinearGradient(
                             colors: [.clear, .black.opacity(0.8)],
@@ -117,6 +123,21 @@ struct RecipeDetailView: View {
         .safeAreaInset(edge: .bottom) {
             Color.clear.frame(height: 100)
         }
+    }
+    
+    private func loadCustomImage() -> UIImage? {
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return nil
+        }
+        
+        let fileURL = documentsDirectory.appendingPathComponent(recipe.imageName)
+        
+        guard let imageData = try? Data(contentsOf: fileURL),
+              let image = UIImage(data: imageData) else {
+            return nil
+        }
+        
+        return image
     }
 }
 

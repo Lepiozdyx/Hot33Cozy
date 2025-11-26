@@ -30,21 +30,44 @@ struct DailyDealBanner: View {
                 
                 Spacer()
                 
-                Image(recipe.imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .overlay {
-                        Circle()
-                            .stroke(.green, lineWidth: 3)
+                Group {
+                    if recipe.isCustom, let image = loadCustomImage() {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                    } else {
+                        Image(recipe.imageName)
+                            .resizable()
+                            .scaledToFill()
                     }
-                    .frame(width: 180, height: 180)
-                    .clipShape(Circle())
-                    .padding(.trailing, -40)
+                }
+                .overlay {
+                    Circle()
+                        .stroke(.green, lineWidth: 3)
+                }
+                .frame(width: 180, height: 180)
+                .clipShape(Circle())
+                .padding(.trailing, -40)
             }
         }
         .frame(height: 140)
         .frame(maxWidth: .infinity)
         .clipped()
+    }
+    
+    private func loadCustomImage() -> UIImage? {
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return nil
+        }
+        
+        let fileURL = documentsDirectory.appendingPathComponent(recipe.imageName)
+        
+        guard let imageData = try? Data(contentsOf: fileURL),
+              let image = UIImage(data: imageData) else {
+            return nil
+        }
+        
+        return image
     }
 }
 

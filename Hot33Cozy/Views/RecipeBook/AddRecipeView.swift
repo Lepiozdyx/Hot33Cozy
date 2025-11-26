@@ -13,6 +13,7 @@ struct AddRecipeView: View {
     @State private var ingredients = ""
     @State private var description = ""
     @State private var selectedPhoto: PhotosPickerItem?
+    @State private var selectedImage: UIImage?
     @State private var imageName = ""
     
     var body: some View {
@@ -29,13 +30,29 @@ struct AddRecipeView: View {
                                     .fill(Color.backgroundSurface)
                                     .frame(height: 120)
                                 
-                                VStack(spacing: 8) {
-                                    Image(systemName: "photo")
-                                        .font(.system(size: 40))
-                                        .foregroundColor(.textMuted)
-                                    Text("Add Photo")
-                                        .font(.bodyPrimary)
-                                        .foregroundColor(.textSecondary)
+                                if let selectedImage {
+                                    Image(uiImage: selectedImage)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(height: 120)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                } else {
+                                    VStack(spacing: 8) {
+                                        Image(systemName: "photo")
+                                            .font(.system(size: 40))
+                                            .foregroundColor(.textMuted)
+                                        Text("Add Photo")
+                                            .font(.bodyPrimary)
+                                            .foregroundColor(.textSecondary)
+                                    }
+                                }
+                            }
+                        }
+                        .onChange(of: selectedPhoto) { _, newValue in
+                            Task {
+                                if let data = try? await newValue?.loadTransferable(type: Data.self),
+                                   let image = UIImage(data: data) {
+                                    selectedImage = image
                                 }
                             }
                         }
@@ -95,6 +112,8 @@ struct AddRecipeView: View {
         
         let brewingTime = (Int(brewingTimeMinutes) ?? 0) * 60
         
+        let savedImageName = saveImageToDocuments()
+        
         let recipe = Recipe(
             id: dataManager.generateRecipeID(),
             name: name,
@@ -102,12 +121,37 @@ struct AddRecipeView: View {
             brewingTime: brewingTime,
             ingredients: ingredientsList,
             description: description,
-            imageName: "custom-recipe",
+            imageName: savedImageName,
             isCustom: true
         )
         
         dataManager.saveCustomRecipe(recipe)
         dismiss()
+    }
+    
+    private func saveImageToDocuments() -> String {
+        guard let image = selectedImage else {
+            return "custom-recipe"
+        }
+        
+        let imageName = "custom-\(UUID().uuidString).jpg"
+        
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return "custom-recipe"
+        }
+        
+        let fileURL = documentsDirectory.appendingPathComponent(imageName)
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            return "custom-recipe"
+        }
+        
+        do {
+            try imageData.write(to: fileURL)
+            return imageName
+        } catch {
+            return "custom-recipe"
+        }
     }
 }
 

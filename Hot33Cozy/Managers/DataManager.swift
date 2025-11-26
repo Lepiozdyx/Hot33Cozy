@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 
+@MainActor
 final class DataManager: ObservableObject {
     static let shared = DataManager()
     
@@ -40,6 +41,22 @@ final class DataManager: ObservableObject {
     
     func deleteCustomRecipe(_ recipe: Recipe) {
         customRecipes.removeAll { $0.id == recipe.id }
+        saveCustomRecipes()
+    }
+    
+    func updateFavoriteStatus(recipeID: Int, isFavorite: Bool) {
+        if let index = customRecipes.firstIndex(where: { $0.id == recipeID }) {
+            customRecipes[index].isFavorite = isFavorite
+            saveCustomRecipes()
+        }
+    }
+    
+    func loadFavoritesForCustomRecipes(favoriteIDs: [Int]) {
+        for id in favoriteIDs {
+            if let index = customRecipes.firstIndex(where: { $0.id == id }) {
+                customRecipes[index].isFavorite = true
+            }
+        }
         saveCustomRecipes()
     }
     
