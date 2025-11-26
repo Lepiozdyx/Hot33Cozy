@@ -27,36 +27,19 @@ struct TimerView: View {
                         timeString: viewModel.timeString
                     )
                     
-                    VStack(spacing: 24) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Title")
-                                .font(.h2SectionTitle)
-                                .foregroundColor(.textPrimary)
-                            
-                            Text(viewModel.drinkName.isEmpty ? "No drink selected" : viewModel.drinkName)
-                                .font(.bodyPrimary)
-                                .foregroundColor(viewModel.drinkName.isEmpty ? .textMuted : .textSecondary)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            
-                            Rectangle()
-                                .fill(Color.divider)
-                                .frame(height: 1)
-                        }
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Title")
+                            .font(.h2SectionTitle)
+                            .foregroundColor(.textPrimary)
                         
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Notes")
-                                .font(.h2SectionTitle)
-                                .foregroundColor(.textPrimary)
-                            
-                            TextField("Add notes...", text: $viewModel.notes)
-                                .font(.bodyPrimary)
-                                .foregroundColor(.textSecondary)
-                                .disabled(viewModel.isRunning)
-                            
-                            Rectangle()
-                                .fill(Color.divider)
-                                .frame(height: 1)
-                        }
+                        Text(viewModel.drinkName.isEmpty ? "No drink selected" : viewModel.drinkName)
+                            .font(.bodyPrimary)
+                            .foregroundColor(viewModel.drinkName.isEmpty ? .textMuted : .textSecondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Rectangle()
+                            .fill(Color.divider)
+                            .frame(height: 1)
                     }
                     .padding(.horizontal, 24)
                     
@@ -72,6 +55,7 @@ struct TimerView: View {
                     .buttonStyle(.primary)
                     .padding(.horizontal, 24)
                     
+                    Spacer()
                     Spacer()
                 }
                 

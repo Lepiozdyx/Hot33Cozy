@@ -73,6 +73,8 @@ struct StatisticsView: View {
                             .padding(.horizontal)
                         }
                         
+                        Divider().padding(.horizontal)
+                        
                         if !viewModel.detailedRituals.isEmpty {
                             VStack(alignment: .leading, spacing: 16) {
                                 Text("Details")
@@ -157,6 +159,9 @@ struct StatisticsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 viewModel.loadData()
+            }
+            .safeAreaInset(edge: .bottom) {
+                Color.clear.frame(height: 100)
             }
         }
     }
