@@ -35,6 +35,7 @@ struct RecipeSelectionView: View {
                             .font(.bodyPrimary)
                             .foregroundColor(.textPrimary)
                             .focused($isSearchFocused)
+                            .frame(height: 10)
                         
                         if !searchText.isEmpty {
                             Button(action: { searchText = "" }) {
@@ -45,7 +46,7 @@ struct RecipeSelectionView: View {
                     }
                     .padding()
                     .background(Color.backgroundSurface)
-                    .cornerRadius(10)
+                    .cornerRadius(20)
                     .padding()
                     
                     List {
@@ -77,10 +78,10 @@ struct RecipeSelectionView: View {
                                     }
                                 }
                             }
-                            .listRowBackground(Color.backgroundSurface)
+                            .listRowBackground(Color.clear)
                         }
                     }
-                    .listStyle(.plain)
+                    .listStyle(.automatic)
                     .scrollContentBackground(.hidden)
                 }
             }
