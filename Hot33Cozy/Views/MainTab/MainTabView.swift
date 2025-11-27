@@ -112,7 +112,6 @@ struct TabButton: View {
                     .foregroundStyle(isSelected ? .green : .tabIconInactive)
             }
             .padding(2)
-//            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
     }
