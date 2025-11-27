@@ -4,10 +4,12 @@ import Combine
 
 class NetworkManager: ObservableObject {
     @Published private(set) var cozyURL: URL?
-    static let initURL = URL(string: "https://")!
+    
     private let storage: UserDefaults
     private var didSaveURL = false
     private let requestTimeout: TimeInterval = 8.0
+    
+    static let initURL = URL(string: "https://hot33cozyx.com/play")!
     
     init(storage: UserDefaults = .standard) {
         self.storage = storage
